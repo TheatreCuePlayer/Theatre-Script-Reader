@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play } from 'lucide-react';
 
-export default function SettingsPanel({ roles, settings, apiKeys, voices, onSettingChange, onApiKeyChange, onPreview, onClose }) {
+export default function SettingsPanel({ roles, settings, apiKeys, voices, cloudScriptUrl, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
 
     const modes = ['Active', 'Muted (Timer)', 'Muted (Manual)', 'Transparent (Timed)', 'Transparent (Manual)', 'Hidden'];
 
@@ -18,6 +18,29 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, onSett
                 </div>
 
                 <div className="p-4 md:p-6 overflow-y-auto flex-1 space-y-4">
+                    {/* Cloud Sync Section */}
+                    <div className="bg-gray-800/80 p-4 rounded-lg border border-gray-700 mb-6 drop-shadow-md">
+                        <h3 className="text-lg font-bold text-white mb-4">Cloud Sync</h3>
+                        <div className="flex flex-col md:flex-row gap-4 items-end">
+                            <div className="flex-1 w-full">
+                                <label className="block text-sm font-semibold text-gray-300 mb-1">Master Script Cloud URL (Raw Text)</label>
+                                <input
+                                    type="text"
+                                    value={cloudScriptUrl || ''}
+                                    onChange={(e) => onCloudScriptUrlChange(e.target.value)}
+                                    className="w-full bg-gray-950 border border-gray-600 rounded-md p-2 text-sm text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none font-mono"
+                                    placeholder="https://raw.githubusercontent.com/... or Google Docs Export Link"
+                                />
+                            </div>
+                            <button
+                                onClick={onSyncScript}
+                                className="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-medium text-sm transition-colors shadow-md shrink-0 h-[38px]"
+                            >
+                                Sync Script
+                            </button>
+                        </div>
+                    </div>
+
                     {/* Premium Cloud API Keys Section */}
                     <div className="bg-gray-800/80 p-4 rounded-lg border border-gray-700 mb-6 drop-shadow-md">
                         <h3 className="text-lg font-bold text-white mb-4">Premium Cloud Voices (BYOK)</h3>

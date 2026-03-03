@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Upload, Settings as SettingsIcon, Menu } from 'lucide-react';
+import { Upload, Settings as SettingsIcon, Menu, RefreshCw } from 'lucide-react';
 import { parseScript } from './utils/parser';
 import { useSpeechEngine } from './hooks/useSpeechEngine';
 
@@ -15,6 +15,9 @@ function App() {
     const [settings, setSettings] = useState({});
     const [apiKeys, setApiKeys] = useState({ google: '', elevenlabs: '' });
     const [globalSpeed, setGlobalSpeed] = useState(1.0);
+    const [cloudScriptUrl, setCloudScriptUrl] = useState('');
+    const [lastOpenedScript, setLastOpenedScript] = useState('');
+    const [isSyncing, setIsSyncing] = useState(false);
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -33,6 +36,16 @@ function App() {
             try {
                 setApiKeys(JSON.parse(savedKeys));
             } catch (e) { console.error('Failed to load API keys', e); }
+        }
+
+        const savedCloudUrl = localStorage.getItem('rehearsal-cloud-url');
+        if (savedCloudUrl) setCloudScriptUrl(savedCloudUrl);
+
+        const savedScript = localStorage.getItem('rehearsal-last-opened-script');
+        if (savedScript) {
+            setLastOpenedScript(savedScript);
+            // Optionally auto-parse the saved script on load if desired:
+            // This is complex as it requires duplicating parsing, leaving manual sync for now.
         }
     }, []);
 
@@ -53,6 +66,64 @@ function App() {
         });
     };
 
+    const handleCloudScriptUrlChange = (url) => {
+        setCloudScriptUrl(url);
+        localStorage.setItem('rehearsal-cloud-url', url);
+    };
+
+    const fetchCloudScript = async (url, isAutoCheck = false) => {
+        if (!url) return;
+        setIsSyncing(true);
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const text = await response.text();
+
+            if (isAutoCheck) {
+                if (text === lastOpenedScript) {
+                    alert("Script is up to date.");
+                    setIsSyncing(false);
+                    return;
+                } else {
+                    alert("Script updated to latest version.");
+                }
+            } else {
+                if (!isAutoCheck && text === lastOpenedScript) {
+                    alert("Script is already synced to the latest version.");
+                }
+            }
+
+            const { scriptNodes: parsedNodes, pronunciationDictionary: parsedDict } = parseScript(text);
+
+            setScriptNodes([]);
+            setRoles([]);
+            setPronunciationDictionary({});
+            stop();
+
+            setScriptNodes(parsedNodes);
+            setPronunciationDictionary(parsedDict);
+            localStorage.setItem('rehearsal-last-opened-script', text);
+            setLastOpenedScript(text);
+
+            const uniqueRoles = new Set();
+            parsedNodes.forEach(node => {
+                if (node.character) uniqueRoles.add(node.character);
+                else if (node.type === 'DIRECTION') uniqueRoles.add('STAGE DIRECTIONS');
+            });
+            setRoles(Array.from(uniqueRoles).sort());
+
+            setIsSidebarOpen(true);
+            setIsSettingsOpen(false);
+        } catch (error) {
+            console.error("Cloud Sync Error:", error);
+            alert("Unable to sync. Ensure the link is a direct raw text URL or a public Google Docs export link.");
+        } finally {
+            setIsSyncing(false);
+        }
+    };
+
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -66,6 +137,11 @@ function App() {
         const reader = new FileReader();
         reader.onload = (event) => {
             const text = event.target.result;
+
+            // Save local file read to localStorage identically
+            localStorage.setItem('rehearsal-last-opened-script', text);
+            setLastOpenedScript(text);
+
             const { scriptNodes: parsedNodes, pronunciationDictionary: parsedDict } = parseScript(text);
             setScriptNodes(parsedNodes);
             setPronunciationDictionary(parsedDict);
@@ -132,6 +208,17 @@ function App() {
                     </div>
 
                     <div className="flex items-center gap-2 lg:gap-4">
+                        {cloudScriptUrl && (
+                            <button
+                                onClick={() => fetchCloudScript(cloudScriptUrl, true)}
+                                disabled={isSyncing}
+                                className={`hidden sm:flex items-center gap-2 px-3 py-2 border border-blue-600/50 hover:bg-blue-600/20 text-blue-300 rounded-lg transition-colors shadow-lg text-sm ${isSyncing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            >
+                                <RefreshCw size={18} className={isSyncing ? "animate-spin" : ""} />
+                                <span>{isSyncing ? "Syncing..." : "Check for Updates"}</span>
+                            </button>
+                        )}
+
                         <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg cursor-pointer transition-colors shadow-lg font-medium text-sm">
                             <Upload size={18} />
                             <span className="hidden sm:inline">Upload Script (.txt)</span>
@@ -183,8 +270,11 @@ function App() {
                     settings={settings}
                     apiKeys={apiKeys}
                     voices={voices}
+                    cloudScriptUrl={cloudScriptUrl}
                     onSettingChange={handleSettingChange}
                     onApiKeyChange={handleApiKeyChange}
+                    onCloudScriptUrlChange={handleCloudScriptUrlChange}
+                    onSyncScript={() => fetchCloudScript(cloudScriptUrl, false)}
                     onPreview={playPreview}
                     onClose={() => setIsSettingsOpen(false)}
                 />
