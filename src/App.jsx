@@ -13,6 +13,7 @@ function App() {
     const [pronunciationDictionary, setPronunciationDictionary] = useState({});
     const [roles, setRoles] = useState([]);
     const [settings, setSettings] = useState({});
+    const [apiKeys, setApiKeys] = useState({ google: '', elevenlabs: '' });
     const [globalSpeed, setGlobalSpeed] = useState(1.0);
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -20,11 +21,18 @@ function App() {
 
     // Load settings from localStorage
     useEffect(() => {
-        const saved = localStorage.getItem('rehearsal-settings');
-        if (saved) {
+        const savedSettings = localStorage.getItem('rehearsal-settings');
+        if (savedSettings) {
             try {
-                setSettings(JSON.parse(saved));
+                setSettings(JSON.parse(savedSettings));
             } catch (e) { console.error('Failed to load settings', e); }
+        }
+
+        const savedKeys = localStorage.getItem('rehearsal-api-keys');
+        if (savedKeys) {
+            try {
+                setApiKeys(JSON.parse(savedKeys));
+            } catch (e) { console.error('Failed to load API keys', e); }
         }
     }, []);
 
@@ -37,9 +45,23 @@ function App() {
         });
     };
 
+    const handleApiKeyChange = (provider, key) => {
+        setApiKeys(prev => {
+            const next = { ...prev, [provider]: key };
+            localStorage.setItem('rehearsal-api-keys', JSON.stringify(next));
+            return next;
+        });
+    };
+
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
+
+        // Force a fresh state clear before parsing
+        setScriptNodes([]);
+        setRoles([]);
+        setPronunciationDictionary({});
+        stop(); // safely halt any active audio
 
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -60,6 +82,9 @@ function App() {
             setIsSidebarOpen(true);
         };
         reader.readAsText(file);
+
+        // Clear the input value so the same file can be selected again
+        e.target.value = '';
     };
 
     // The custom hook orchestrates SpeechSynthesis APIs and keeps tracking state
@@ -74,7 +99,7 @@ function App() {
         stop,
         jumpToLine,
         nextManual
-    } = useSpeechEngine(scriptNodes, pronunciationDictionary, settings, globalSpeed, () => {
+    } = useSpeechEngine(scriptNodes, pronunciationDictionary, settings, apiKeys, globalSpeed, () => {
         // Optional callback when a line starts if state managed outside, 
         // but the hook exports currentIndex directly.
     });
@@ -156,8 +181,10 @@ function App() {
                 <SettingsPanel
                     roles={roles}
                     settings={settings}
+                    apiKeys={apiKeys}
                     voices={voices}
                     onSettingChange={handleSettingChange}
+                    onApiKeyChange={handleApiKeyChange}
                     onPreview={playPreview}
                     onClose={() => setIsSettingsOpen(false)}
                 />

@@ -1,5 +1,75 @@
-import React, { useEffect, useRef, useMemo } from 'react';
-import { Play } from 'lucide-react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
+import { EyeOff } from 'lucide-react';
+
+const ScriptLine = ({ node, index, isActiveNode, settings, onJumpToLine }) => {
+    const roleKey = node.character || node.type;
+    const roleSetting = settings[roleKey] || { mode: 'Active' };
+
+    if (roleSetting.mode === 'Hidden') return null;
+
+    const isTransparent = roleSetting.mode === 'Transparent (Timed)' || roleSetting.mode === 'Transparent (Manual)';
+
+    const [isRevealed, setIsRevealed] = useState(false);
+
+    // Reset local state if global settings shift away from Transparent
+    useEffect(() => {
+        if (!isTransparent) {
+            setIsRevealed(false);
+        }
+    }, [isTransparent]);
+
+    if (isTransparent && !isRevealed) {
+        return (
+            <span
+                className={`inline-flex items-center justify-center border ${isActiveNode ? 'border-blue-400 bg-blue-900/60 text-blue-200 shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'border-dashed border-gray-700 text-gray-500 hover:text-gray-300 hover:border-gray-500 hover:bg-gray-800'} transition-all p-1 mx-1 rounded cursor-pointer align-middle`}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setIsRevealed(true);
+                }}
+            >
+                <span className="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider px-1">
+                    <EyeOff size={12} /> Reveal {roleKey}
+                </span>
+            </span>
+        );
+    }
+
+    let nodeClasses = "transition-colors duration-200 relative group ";
+
+    if (isActiveNode) {
+        nodeClasses += "bg-blue-600 text-white rounded px-1 shadow-sm ";
+    } else {
+        nodeClasses += "text-gray-200 ";
+    }
+
+    if (node.type === 'DIRECTION') {
+        nodeClasses += "text-gray-400 italic text-[0.95em] ";
+    }
+
+    return (
+        <span
+            className={nodeClasses}
+            onClick={(e) => {
+                e.stopPropagation();
+                onJumpToLine(index);
+            }}
+        >
+            {node.text}
+            {isTransparent && isRevealed && (
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setIsRevealed(false);
+                    }}
+                    className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1 text-[10px] bg-gray-700 hover:bg-gray-600 text-gray-300 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle"
+                    title="Collapse Line"
+                >
+                    <EyeOff size={10} /> Hide
+                </button>
+            )}
+        </span>
+    );
+};
 
 export default function Teleprompter({ scriptNodes, currentIndex, settings, onJumpToLine }) {
     const containerRef = useRef(null);
@@ -53,7 +123,19 @@ export default function Teleprompter({ scriptNodes, currentIndex, settings, onJu
                 {groupedLines.map((group, groupIdx) => {
                     // Check if any node in this group is currently active
                     const isActiveGroup = group.some(item => item.index === currentIndex);
+
+                    // Do not render group container at all if every node inside it is hidden
+                    const allHidden = group.every(({ node }) => {
+                        const roleKey = node.character || node.type;
+                        return settings[roleKey]?.mode === 'Hidden';
+                    });
+
+                    if (allHidden) return null;
+
                     const firstNode = group[0].node;
+                    // Find the primary dialogue node to securely anchor the Character Name
+                    const dialogueItem = group.find(item => item.node.type === 'DIALOGUE');
+                    const speakerName = dialogueItem ? dialogueItem.node.character : null;
 
                     let lineClasses = "p-4 rounded-lg transition-all cursor-pointer border border-transparent ";
 
@@ -80,62 +162,24 @@ export default function Teleprompter({ scriptNodes, currentIndex, settings, onJu
                             className={lineClasses}
                             onClick={() => onJumpToLine(group[0].index)} // Default click jumps to first node in line
                         >
-                            {/* Render Character Name uniquely if this line starts a dialogue block */}
-                            {firstNode.type === 'DIALOGUE' && (
+                            {/* Render Character Name uniquely if this line contains a dialogue block */}
+                            {speakerName && (
                                 <div className="font-bold text-blue-300 text-sm mb-1 uppercase tracking-wider">
-                                    {firstNode.character}
+                                    {speakerName}
                                 </div>
                             )}
 
                             <div className="leading-relaxed whitespace-pre-wrap">
-                                {group.map(({ node, index }) => {
-                                    const isActiveNode = index === currentIndex;
-                                    const roleKey = node.character || node.type;
-                                    const roleSetting = settings[roleKey] || { mode: 'Active' };
-                                    const isTransparent = roleSetting.mode === 'Transparent';
-
-                                    if (isTransparent && !isActiveNode) {
-                                        return (
-                                            <span
-                                                key={node.id}
-                                                className="inline-flex items-center justify-center border border-dashed border-gray-800 opacity-50 hover:opacity-100 transition-opacity p-1 mx-1 rounded cursor-pointer hover:bg-gray-800 align-middle whitespace-nowrap"
-                                                onClick={(e) => { e.stopPropagation(); onJumpToLine(index); }}
-                                            >
-                                                <button className="flex items-center gap-1 text-[10px] text-gray-400 hover:text-white uppercase">
-                                                    <Play size={10} /> Reveal
-                                                </button>
-                                            </span>
-                                        );
-                                    }
-
-                                    // Styling based on node type and active state within the inline block
-                                    let nodeClasses = "transition-colors duration-200 ";
-
-                                    if (isActiveNode) {
-                                        // Highlight specific spoken inline node distinctly
-                                        nodeClasses += "bg-blue-600 text-white rounded px-1 shadow-sm ";
-                                    } else {
-                                        nodeClasses += "text-gray-200 ";
-                                    }
-
-                                    if (node.type === 'DIRECTION') {
-                                        // Stage directions styled differently
-                                        nodeClasses += "text-gray-400 italic text-[0.95em] ";
-                                    }
-
-                                    return (
-                                        <span
-                                            key={node.id}
-                                            className={nodeClasses}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                onJumpToLine(index);
-                                            }}
-                                        >
-                                            {node.text}
-                                        </span>
-                                    );
-                                })}
+                                {group.map(({ node, index }) => (
+                                    <ScriptLine
+                                        key={node.id}
+                                        node={node}
+                                        index={index}
+                                        isActiveNode={index === currentIndex}
+                                        settings={settings}
+                                        onJumpToLine={onJumpToLine}
+                                    />
+                                ))}
                             </div>
                         </div>
                     );

@@ -1,5 +1,7 @@
 ﻿@PRONUNCIATION
-Lucien=L-oo-sh-eh-n
+Lucien=Looshen
+Mr. = Mister
+Briquets = brikets
 @END_PRONUNCIATION
 
 # ACT 1
@@ -101,31 +103,31 @@ LUCIEN: [Proudly, as if in a contest, taking out the briquets.] I got charcoal b
 ARNOLD: I don't believe this. You make a plan, you think it all through, you work out all the details, and then . . . I'll tell you truthfully, I really don't believe this. This is the kind of thing that bothers me a lot. I mean, it was foolproof.
 [Arnold, Lucien, and Norman sit. Lucien has the briquets. Norman has the doughnuts. Arnold still has the Wheaties.]
 JACK: [To the audience.] My name is Jack Palmer. For the past eight months I've been supervising five group apartments of the mentally handicapped. Seventeen adult men. The idea is to introduce them into the mainstream. [Pause.] Most of the time, I laugh at their escapades. But most times the laughter wears thin. The truth is they're burning me out. [A beat.] But, somehow, despite this, they remain my closest associates. [Amidst the men.] At the doughnut shop where Norman works, his nickname is Billy Bulimia. At the end of the shift, they gather all the broken doughnuts and give them to Norman. This is construed as an act of kindness by both Norman and the people at the doughnut shop. Since Norman started working there three months ago, he's gained seventeen pounds. And Lucien, on a recent group trip to a local petting zoo, stunned a host of schoolchildren and toddlers by climbing atop an apathetic cow and yelling loudly, "Fire! This cow be on fire!" Two weeks ago, Arnold bought a weather radio. After four days of nothing but weather, Arnold called the Coast Guard and informed them there was a plot to suppress music, news, and commercials. And finally, Barry, who you've not yet met, has convinced himself that he's a golf pro. He even put up a sign in the recreation room of the apartment complex advertising private lessons. At a dollar thirteen an hour. At last count, he had four pupils signed up. So, my question is, "Who's on first?"
-[The men remain in the apartment as the lights fade. Barry and Mr. Hedges on the grounds of the apartment complex. A bench. Bright Sun. Mr. Hedges holds a six iron. Barry Klemper is twenty-eight. He wears a pastel "golf outfit" and sneakers. He is full of positive conviction.]
+[The men remain in the apartment as the lights fade. Barry and HEDGES on the grounds of the apartment complex. A bench. Bright Sun. HEDGES holds a six iron. Barry Klemper is twenty-eight. He wears a pastel "golf outfit" and sneakers. He is full of positive conviction.]
 
-
+###FRENCH SCENE HEDGES
 BARRY: I’ll tell you one of the basic problems of golf. Maybe the basic problem of golf. Golf is a game. It’s just a game, Mr. Hodges, just a game.
-MR. HEDGES: Hedges.
+HEDGES: Hedges.
 BARRY: It's too early to worry about that. Besides, I don't know of more than two or three courses with a serious hedge hazard. Sure, traps. Sure, thick rough. Sure. But hedges. That's rare.
-MR. HEDGES: My name is Hedges. My name is John Hedges.
+HEDGES: My name is Hedges. My name is John Hedges.
 BARRY: I have no reason to doubt that. But you're paying good money for this lesson, and we can't spend all the time worrying about the occasional hedge. It just doesn't make sense.
-MR. HEDGES: Are you joking?
+HEDGES: Are you joking?
 BARRY: I don't joke, John. [Pause.] Today, our first lesson, we're not even going to touch a club. Please put your club down.
-MR. HEDGES: I'm just holding it.
+HEDGES: I'm just holding it.
 BARRY: Please.
-MR. HEDGES: [Warily putting down the club.] Sure. Right.
+HEDGES: [Warily putting down the club.] Sure. Right.
 BARRY: Thank you. Now, the first lesson — today's lesson — I call “How To Handle a Heckler in the Gallery.”
-MR. HEDGES: Gallery? What gallery? I play on a nine-hole public course. I just want a few basic tips.
+HEDGES: Gallery? What gallery? I play on a nine-hole public course. I just want a few basic tips.
 BARRY: The pros always have a crowd. Always a gallery. Aspire, Mr. Hodges, aspire to be a champion.
-MR. HEDGES: Hedges.
+HEDGES: Hedges.
 BARRY: [Frustrated.] Hedges! Golf is more than hedges, Hodges. Golf is the little things. The basics. Execution. Execution. Execution.
-MR. HEDGES: [Also frustrated.] All right, fine, give me a basic. Just give me one basic.
+HEDGES: [Also frustrated.] All right, fine, give me a basic. Just give me one basic.
 BARRY: What you want is a tip — a golf tip — something that'll help you right now. Am I right?
-MR. HEDGES: Yes. That’s what I want.
+HEDGES: Yes. That’s what I want.
 BARRY: Fine. Let me take a moment.
-MR. HEDGES: Maybe we should just forget this whole thing. It doesn't seem to be working out.
+HEDGES: Maybe we should just forget this whole thing. It doesn't seem to be working out.
 BARRY: Don't quit now, John. Hang in there. I know that the first lesson is difficult, but it'll get easier. I promise you. There'll be a lot less to memorize as we go along.
-MR. HEDGES: [Now coldly.] What's the tip?
+HEDGES: [Now coldly.] What's the tip?
 BARRY: Okay. Let me think. There are so many. Ah, here's one that I think can be quite useful. At the top of your backswing, come to a complete stop — the club parallel to the ground — and take a moment to reflect on how fortunate we are to live in a time when golf is in full flower. Then hit that little round sucker as viciously as you can.
 [The lights fade and come up on the apartment. Lucien gets up and gathers his library books.]
 LUCIEN: I'm gonna be looking at my books. They're hard. I be doing it alone.
@@ -159,7 +161,8 @@ ARNOLD: I don't like this. I don't like this at all.
 NORMAN: I get to keep the doughnuts, right?
 JACK: No, you do not get to keep the doughnuts. Now listen, Arnold, just tell the manager you want your money back. Okay?
 ARNOLD: I don't know, Jack. I mean, that's pretty embarrassing.
-JACK: I know it's tough, Arnold, but you can do it. [Sees Norman sneaking a doughnut.] JACK. Norman, if you take one bite of that doughnut, I'm going to take all your keys and have them melted down into a lawn statue.
+JACK: I know it's tough, Arnold, but you can do it. [Sees Norman sneaking a doughnut.] 
+JACK. Norman, if you take one bite of that doughnut, I'm going to take all your keys and have them melted down into a lawn statue.
 NORMAN: [Guarding the overflowing key ring on his belt.] I need my keys. They're important. I can't... get into things without my keys.
 JACK: It's your decision, Norman. Your doughnuts or your keys. Take your time.
 NORMAN: Can I eat while I'm thinking it over?
@@ -172,8 +175,10 @@ JACK: Don't forget the briquets.
 NORMAN: There's a blueberry one in here. It has a bite out of it, but it's still good.
 ARNOLD: [A brilliant idea.] I can't do it! I don't know the manager's name. There. That's final.
 JACK: Now. [Sees Norman with a doughnut.] If you don't put that down, Norman, your keys are ancient history.
-[Norman relents. Arnold takes two bags and starts for the front door.] ARNOLD. I just want you to know that in my entire life I have never seen such pressure. This is like Russia around here. Boy, a guy can't even eat a doughnut or get a few things in for a rainy day. Boy!
-[Arnold exits with the bags.] NORMAN. He's mad. [Heading for the kitchen.] I'll put these in the refrigerator. You know, for later.
+[Norman relents. Arnold takes two bags and starts for the front door.] 
+ARNOLD. I just want you to know that in my entire life I have never seen such pressure. This is like Russia around here. Boy, a guy can't even eat a doughnut or get a few things in for a rainy day. Boy!
+[Arnold exits with the bags.] 
+NORMAN. He's mad. [Heading for the kitchen.] I'll put these in the refrigerator. You know, for later.
 JACK: Just for a snack, right?
 NORMAN: Yeah. You know, for later.
 JACK: What about that girl you like? That one that goes to the Wednesday night dances? What do you think she'd think?
@@ -181,13 +186,16 @@ NORMAN: [Affected.] What girl?
 JACK: You know what girl. Sheila.
 NORMAN: Sheila. She's nice. I like her.
 JACK: Didn't she say you were too fat? [No response.] And didn't you tell me that you were going to stop eating all these doughnuts? Come on now, Norman.
-[Arnold enters. Grouchily, he gets another bag.] ARNOLD. Maybe I'll just move to Russia, I repeat, to Russia. Maybe I'll just pack all my things and move there. You know, I think I will. That's a good idea. I'll just take all my stuff to Russia.
-[Jack and Norman watch as Arnold again exits.] NORMAN. He's mad. [An embarrassed pause.] Sheila doesn't like fast dances. She likes slow dances. You know what she did?
+[Arnold enters. Grouchily, he gets another bag.] 
+ARNOLD. Maybe I'll just move to Russia, I repeat, to Russia. Maybe I'll just pack all my things and move there. You know, I think I will. That's a good idea. I'll just take all my stuff to Russia.
+[Jack and Norman watch as Arnold again exits.] 
+NORMAN. He's mad. [An embarrassed pause.] Sheila doesn't like fast dances. She likes slow dances. You know what she did?
 JACK: What?
 NORMAN: Right in the middle of this real fast dance, she stopped. Like when the bus stops. Oh boy! I thought she was broken or something.
 JACK: [Gently.] That kind of thing happens all the time.
 NORMAN: That's what I figured. You know, who can keep up with it?
-[Arnold enters again and gets the final bag.] ARNOLD. My mind is made up. Nobody can talk me out of it. I'm moving to Russia tomorrow, thank you very much.
+[Arnold enters again and gets the final bag.] 
+ARNOLD. My mind is made up. Nobody can talk me out of it. I'm moving to Russia tomorrow, thank you very much.
 [Arnold exits.]
 JACK & NORMAN: [Together.] He's mad.
 NORMAN: [Giving Jack the doughnuts.] Jack, you have them.
@@ -307,14 +315,17 @@ LUCIEN: Me neither. I be getting dressed. [Lucien exits into his bedroom. Norman
 BARRY: [After a pause, affected.] It's from ... my Dad. He's coming to visit me. He's going to be in Boston for a day and he's coming down to visit me.
 NORMAN: Are you done with the stamp? [Barry silently gets up, shaken by the letter. He starts for the bathroom.] BARRY. He's going to be in Boston and he says he's coming down to visit me. [The front doorbell rings.]
 NORMAN: He's here! Oh boy, he's fast.
-BARRY: [Trancelike.] It's from Dad . . . My Dad . . . Dad is coming to visit me . . . [Clutching the letter, Barry exits into the bathroom. The doorbell rings again. Norman looks around somewhat helplessly. He starts for the front door.] NORMAN. [Calling in to Barry.] I'll tell your Dad you're in the bathroom! [Norman opens the door. Mrs. Warren stands there. She is a cheerful woman in her thirties.] MRS. WARREN. Hello.
+BARRY: [Trancelike.] It's from Dad . . . My Dad . . . Dad is coming to visit me . . . [Clutching the letter, Barry exits into the bathroom. The doorbell rings again. Norman looks around somewhat helplessly. He starts for the front door.] 
+NORMAN. [Calling in to Barry.] I'll tell your Dad you're in the bathroom! [Norman opens the door. Mrs. Warren stands there. She is a cheerful woman in her thirties.] 
+MRS. WARREN. Hello.
 NORMAN: [By rote.] Hello. My name is Norman Bulansky. Welcome to my home. Won't you take a seat.
 MRS. WARREN: [Studying him curiously.] I really can't stay. My name is Karen Warren. My husband and I just moved in next door a week ago.
 NORMAN: Hello. My name is Norman Bulansky. Welcome to my seat. Won't you take a home . . . [Correcting himself.] A seat. Won't you take my home . . . [Truly confused.] Oh boy! This is kind of, you know, oh boy, tricky.
 MRS. WARREN: "Welcome to my home. Won't you take a seat." I think that's it.
 NORMAN: No, it can't be that. This is my home, not your home.
 MRS. WARREN: I really won't take but a minute.
-NORMAN: Won't you take a seat? [She sits. Barry enters from the bathroom, now strangely energized. He spots Mrs. Warren.] BARRY. Hello, My name is Barry Klemper. Welcome to my home. Won't you take a seat?
+NORMAN: Won't you take a seat? [She sits. Barry enters from the bathroom, now strangely energized. He spots Mrs. Warren.] 
+BARRY. Hello, My name is Barry Klemper. Welcome to my home. Won't you take a seat?
 MRS. WARREN: I'm sitting, thank you.
 BARRY: [With great sociability.] So you are. How silly of me. [Sitting beside her.] Do you enjoy golf?
 NORMAN: Can I get you something to drink? We have milk and juice and iced tea and cheese and eggs and . . .
@@ -359,6 +370,7 @@ JACK: But they don't care whether you can read or not. They just want you to be 
 LUCIEN: Yourself, it ain't ready yet. Yourself just ain't ready yet.
 [Lucien exits slowly into his bedroom. Jack steps forward.]
 JACK: [To the audience.] Two nights ago, at around midnight, Lucien pulled a fire alarm. This created quite a flurry of activity. Fires in apartment complexes draw a lot of attention. Lots of equipment. And one particularly enraged fire chief. When he finally tracked Lucien down, Lucien said, "Can I be having some aspirin, please?" When he finally tracked me down, he wasn't in a listening mood. [A moment.] When I got home at three A.M., I threw a toaster across the kitchen. Shards of metal all over the place. The next morning, a friend dropped by. "What happened?" he asked. "I'm on a toast-free diet," I said. [Long pause.] And we both laughed.
+###FRENCH SCENE THE DANCE
 [The dance. A gymnasium floor. Streamers. Balloons. Colored lights. Contemporary popular music. Arnold wears a loud sports jacket, no tie, brown shoes. Norman wears his doughnut shop outfit with a tie. His keys dangle. The men are standing on the periphery, checking things out.]
 ARNOLD: [Pointing.] That one! That one. I danced with her two weeks ago. You know what she did? She drooled on me. All over my shoulder. Some of it even got on my pants. I hate that when you dance with a girl and she drools on you. It's very unsanitary. [Spotting another dancer.] And that Freddie Golonzo. He thinks he's Xavier Cugat or somebody. Ever since he got those sneakers with the stripes, he thinks he's Xavier Cugat.
 NORMAN: Who's Xavier Cugat?
@@ -737,7 +749,8 @@ CLARA: [In a low chant.] No no no no no no no no no no no no no no no no no no n
 NORMAN: Sheila, want to see my pad?
 CLARA: No.
 SHEILA: He asked me, Clara. You shut up. What's a pad?
-NORMAN: It'd be maybe better if I moved over. [Norman gets up and tries to squeeze between Sheila and Clara.] CLARA. [With ferocity.] No!!
+NORMAN: It'd be maybe better if I moved over. [Norman gets up and tries to squeeze between Sheila and Clara.] 
+CLARA. [With ferocity.] No!!
 NORMAN: [Backs off.] I just thought it'd maybe be better. Oh boy, this is tricky. I'll just sit back down. [Sits.] It's okay, Sheila. I can hear you over here. My ears are like cats. [Pause.] Sheila, want to see my pad?
 CLARA & SHEILA: [Together.] No! / Yes!
 NORMAN: It's real nice. We got this big curtain in the bathroom with swans all over it. And we got a couch. And, oh boy, you should just see how we got chairs and pictures and dishes and milk and just about everything. We got lamps. We got doughnuts. And swans. And iced tea. And we got lamps. And want to? Want to see my pad?
@@ -749,6 +762,7 @@ NORMAN: I need my keys.
 SHEILA: Please, can I have them?
 NORMAN: [In utter frustration.] I need my keys, Sheila. I need my keys. I can't get into things without my keys. I need my keys!!!
 CLARA: Nonononononononononononononono. . . .
+### FRENCH SCENE THEATRE MANAGER'S OFFICE
 [The dance floor goes to black. The theatre manager's office. Mr. Corbin is a mild-mannered middle-aged man. He is busy dealing with some papers. Arnold, in his maintenance uniform, enters. He carries a handful of sanitary napkins. He is outraged.]
 ARNOLD: Mr. Corbin?
 MR. CORBIN: Hi, Arnold. How's it going?
@@ -812,7 +826,8 @@ MR. KLEMPER: No, no I'm sorry. I . . . lost control. Jesus, Barry, I didn't mean
 BARRY: [Whimpering.] No, Dad. Please, Dad. Don't hit me . . . Please . . .
 MR. KLEMPER: [Paralyzed.] It was—it was an accident, Barry. I didn't mean to. I just . . . you know—lost control. I'm sorry. Jesus— [Barry stops whimpering. Warily, he rights himself. There is nothing for either of them to say. Mr. Klemper starts for the door.]
 MR. KLEMPER: Well—I guess I'd better go. Those buses, they run right on time. Buses don't wait for a one-armed man. That's one thing I've learned in life, Barry. Buses don't wait for a one-armed man. [Pause.] And don't you worry, boy. Christmas comes around, those chocolates will be in the mail. Count on it. [Pause.] It ain't my way, Barry, but your mother, God rest her pathetic soul, would want you to know that when you were just a little baby who couldn't talk or nothing, she loved you more than life itself. More than goddamned life itself. [Mr. Klemper exits. Barry calls weakly to the closed door.]
-BARRY: Dad. Dad, I'm a golf pro now, Dad. [Barry places the chocolates beside him gently, his mind millions of miles away. Fade to blackout. The light come up on Arnold at the movie theatre. He is polishing a pair of huge cowboy boots. He looks up.] ARNOLD. [To the audience.] These are Melvin's. Personally, I as a person would never wear cowboy boots. I'm what you call a landlubber. Not Melvin though. He even said one day if he had the money, he'd buy a horse. Not me, no sir. Do you have any idea what horses eat? I don't. [Pause.] Frankly, this whole Melvin thing has given me such bags under my eyes, you'd think I had amnesia. [A final pause.] And frankly, I repeat, I emphasize, I repeat, end of subject.
+BARRY: Dad. Dad, I'm a golf pro now, Dad. [Barry places the chocolates beside him gently, his mind millions of miles away. Fade to blackout. The light come up on Arnold at the movie theatre. He is polishing a pair of huge cowboy boots. He looks up.] 
+ARNOLD. [To the audience.] These are Melvin's. Personally, I as a person would never wear cowboy boots. I'm what you call a landlubber. Not Melvin though. He even said one day if he had the money, he'd buy a horse. Not me, no sir. Do you have any idea what horses eat? I don't. [Pause.] Frankly, this whole Melvin thing has given me such bags under my eyes, you'd think I had amnesia. [A final pause.] And frankly, I repeat, I emphasize, I repeat, end of subject.
 [The lights go to black. Taped introduction into the State Senate.]
 ANNOUNCEMENT: [Off.] Room 313. Health and Human Services Subcommittee. Senator Warren Clarke presiding. Order please.
 [The State Senate Chambers. Lucien and Jack sit at a table. Both men wear suits. Lucien has his Spiderman tie. Facing them sits Senator Clarke. Clarke is a dignified middle-aged man. Lucien, very nervous, can barely look up.]
