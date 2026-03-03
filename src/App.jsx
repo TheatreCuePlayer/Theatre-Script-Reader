@@ -71,6 +71,33 @@ function App() {
         localStorage.setItem('rehearsal-cloud-url', url);
     };
 
+    const processRawScriptText = (text) => {
+        const { scriptNodes: parsedNodes, pronunciationDictionary: parsedDict } = parseScript(text);
+
+        // Force a fresh state clear before applying new
+        setScriptNodes([]);
+        setRoles([]);
+        setPronunciationDictionary({});
+        stop();
+
+        setScriptNodes(parsedNodes);
+        setPronunciationDictionary(parsedDict);
+
+        // Save local file read to localStorage identically
+        localStorage.setItem('rehearsal-last-opened-script', text);
+        setLastOpenedScript(text);
+
+        // Extract unique characters and directions for settings panel
+        const uniqueRoles = new Set();
+        parsedNodes.forEach(node => {
+            if (node.character) uniqueRoles.add(node.character);
+            else if (node.type === 'DIRECTION') uniqueRoles.add('STAGE DIRECTIONS');
+        });
+
+        setRoles(Array.from(uniqueRoles).sort());
+        setIsSidebarOpen(true);
+    };
+
     const fetchCloudScript = async (url, isAutoCheck = false) => {
         if (!url) return;
         setIsSyncing(true);
@@ -95,26 +122,7 @@ function App() {
                 }
             }
 
-            const { scriptNodes: parsedNodes, pronunciationDictionary: parsedDict } = parseScript(text);
-
-            setScriptNodes([]);
-            setRoles([]);
-            setPronunciationDictionary({});
-            stop();
-
-            setScriptNodes(parsedNodes);
-            setPronunciationDictionary(parsedDict);
-            localStorage.setItem('rehearsal-last-opened-script', text);
-            setLastOpenedScript(text);
-
-            const uniqueRoles = new Set();
-            parsedNodes.forEach(node => {
-                if (node.character) uniqueRoles.add(node.character);
-                else if (node.type === 'DIRECTION') uniqueRoles.add('STAGE DIRECTIONS');
-            });
-            setRoles(Array.from(uniqueRoles).sort());
-
-            setIsSidebarOpen(true);
+            processRawScriptText(text);
             setIsSettingsOpen(false);
         } catch (error) {
             console.error("Cloud Sync Error:", error);
@@ -128,34 +136,10 @@ function App() {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Force a fresh state clear before parsing
-        setScriptNodes([]);
-        setRoles([]);
-        setPronunciationDictionary({});
-        stop(); // safely halt any active audio
-
         const reader = new FileReader();
         reader.onload = (event) => {
             const text = event.target.result;
-
-            // Save local file read to localStorage identically
-            localStorage.setItem('rehearsal-last-opened-script', text);
-            setLastOpenedScript(text);
-
-            const { scriptNodes: parsedNodes, pronunciationDictionary: parsedDict } = parseScript(text);
-            setScriptNodes(parsedNodes);
-            setPronunciationDictionary(parsedDict);
-
-            // Extract unique characters and directions for settings panel
-            const uniqueRoles = new Set();
-            parsedNodes.forEach(node => {
-                if (node.character) uniqueRoles.add(node.character);
-                else if (node.type === 'DIRECTION') uniqueRoles.add('STAGE DIRECTIONS');
-                // act/scene headers don't get voices typically, but we could add them if wanted or if explicitly typed
-            });
-            setRoles(Array.from(uniqueRoles).sort());
-
-            setIsSidebarOpen(true);
+            processRawScriptText(text);
         };
         reader.readAsText(file);
 
