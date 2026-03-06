@@ -10,6 +10,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
     const isPlayingRef = useRef(false);
     const currentIndexRef = useRef(0);
     const currentAudioRef = useRef(null); // Reference to active HTMLAudioElement
+    const activeProcessIdRef = useRef(0); // Sequence ID for active playback promises
 
     // Combined voices list
     const googleVoices = apiKeys?.google ? [
@@ -93,6 +94,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
 
     // Helper to stop all active audio
     const _stopAllAudio = () => {
+        activeProcessIdRef.current += 1;
         window.speechSynthesis.cancel();
         if (currentAudioRef.current) {
             currentAudioRef.current.pause();
@@ -145,78 +147,92 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
         return URL.createObjectURL(blob);
     };
 
-    const processSpeech = async (text, voiceURI, speed, pitch, volume, onEndCallback) => {
-        _stopAllAudio();
+    const processSpeech = (text, voiceURI, speed, pitch, volume) => {
+        return new Promise(async (resolve) => {
+            _stopAllAudio();
+            const processId = activeProcessIdRef.current;
 
-        if (!text.trim()) {
-            onEndCallback();
-            return;
-        }
-
-        const selectedVoice = allVoices.find(v => v.id === voiceURI);
-        const voiceType = selectedVoice?.type || 'local';
-
-        // Muted behavior
-        if (volume === 0) {
-            // Using a simple timeout for transparent/muted-timer modes
-            const duration = Math.max(1000, (text.split(' ').length / 2.5) * 1000 * (1 / speed));
-            setTimeout(() => {
-                onEndCallback();
-            }, duration);
-            return;
-        }
-
-        try {
-            if (voiceType === 'google' && apiKeys?.google) {
-                const audioUrl = await fetchGoogleCloudAudio(text, selectedVoice.voice_id, speed, pitch, apiKeys.google);
-                const audio = new Audio(audioUrl);
-                audio.onended = onEndCallback;
-                audio.onerror = onEndCallback;
-                currentAudioRef.current = audio;
-                audio.play();
-
-            } else if (voiceType === 'elevenlabs' && apiKeys?.elevenlabs) {
-                const audioUrl = await fetchElevenLabsAudio(text, selectedVoice.voice_id, apiKeys.elevenlabs);
-                const audio = new Audio(audioUrl);
-                // Elevenlabs doesn't support direct speed/pitch, we fallback to standard HTML playbackRate
-                audio.playbackRate = speed;
-                audio.onended = () => {
-                    URL.revokeObjectURL(audioUrl);
-                    onEndCallback();
-                };
-                audio.onerror = () => {
-                    URL.revokeObjectURL(audioUrl);
-                    onEndCallback();
-                }
-                currentAudioRef.current = audio;
-                audio.play();
-
-            } else {
-                // Fallback to local Web Speech API
-                const utterance = new SpeechSynthesisUtterance(text);
-                if (selectedVoice?.type === 'local') {
-                    utterance.voice = selectedVoice.originalVoice; // Assigning native SpeechSynthesisVoice
-                }
-                utterance.rate = speed;
-                utterance.pitch = pitch;
-                utterance.volume = volume;
-                utterance.onend = onEndCallback;
-                utterance.onerror = (e) => {
-                    console.warn("Speech synthesis error", e);
-                    onEndCallback();
-                };
-                window.speechSynthesis.speak(utterance);
+            if (!text.trim()) {
+                return resolve();
             }
-        } catch (error) {
-            console.error("Audio generation failed, skipping segment:", error);
-            onEndCallback();
-        }
+
+            const selectedVoice = allVoices.find(v => v.id === voiceURI);
+            const voiceType = selectedVoice?.type || 'local';
+
+            // Muted behavior
+            if (volume === 0) {
+                // Using a simple timeout for transparent/muted-timer modes
+                const duration = Math.max(1000, (text.split(' ').length / 2.5) * 1000 * (1 / speed));
+                setTimeout(() => {
+                    if (processId === activeProcessIdRef.current) {
+                        resolve();
+                    }
+                }, duration);
+                return;
+            }
+
+            try {
+                if (voiceType === 'google' && apiKeys?.google) {
+                    const audioUrl = await fetchGoogleCloudAudio(text, selectedVoice.voice_id, speed, pitch, apiKeys.google);
+                    if (processId !== activeProcessIdRef.current) return resolve();
+
+                    const audio = new Audio(audioUrl);
+                    audio.onended = resolve;
+                    audio.onerror = resolve;
+                    currentAudioRef.current = audio;
+                    audio.play().catch((e) => {
+                        console.error('Audio play error:', e);
+                        resolve();
+                    });
+
+                } else if (voiceType === 'elevenlabs' && apiKeys?.elevenlabs) {
+                    const audioUrl = await fetchElevenLabsAudio(text, selectedVoice.voice_id, apiKeys.elevenlabs);
+                    if (processId !== activeProcessIdRef.current) return resolve();
+
+                    const audio = new Audio(audioUrl);
+                    // Elevenlabs doesn't support direct speed/pitch, we fallback to standard HTML playbackRate
+                    audio.playbackRate = speed;
+                    audio.onended = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        resolve();
+                    };
+                    audio.onerror = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        resolve();
+                    }
+                    currentAudioRef.current = audio;
+                    audio.play().catch((e) => {
+                        console.error('Audio play error:', e);
+                        resolve();
+                    });
+
+                } else {
+                    // Fallback to local Web Speech API
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    if (selectedVoice?.type === 'local') {
+                        utterance.voice = selectedVoice.originalVoice; // Assigning native SpeechSynthesisVoice
+                    }
+                    utterance.rate = speed;
+                    utterance.pitch = pitch;
+                    utterance.volume = volume;
+                    utterance.onend = resolve;
+                    utterance.onerror = (e) => {
+                        console.warn("Speech synthesis error", e);
+                        resolve();
+                    };
+                    window.speechSynthesis.speak(utterance);
+                }
+            } catch (error) {
+                console.error("Audio generation failed, skipping segment:", error);
+                resolve();
+            }
+        });
     };
 
     const playPreview = (voiceURI, speed = 1.0, pitch = 1.0) => {
         const text = "Testing voice playback.";
         const resolvedSpeed = speed === 1.0 ? globalSpeed : speed;
-        processSpeech(text, voiceURI, resolvedSpeed, pitch, 1, () => { });
+        processSpeech(text, voiceURI, resolvedSpeed, pitch, 1);
     };
 
     const stop = useCallback(() => {
@@ -279,13 +295,11 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
         const pitch = roleSetting.pitch !== undefined ? roleSetting.pitch : 1.0;
         const volume = (roleSetting.mode === 'Muted (Timer)' || roleSetting.mode === 'Transparent (Timed)') ? 0 : 1;
 
-        const onEnd = () => {
-            if (isPlayingRef.current) {
-                speakLine(currentIndexRef.current + 1);
-            }
-        };
+        await processSpeech(textToSpeak, roleSetting.voiceURI, speed, pitch, volume);
 
-        await processSpeech(textToSpeak, roleSetting.voiceURI, speed, pitch, volume, onEnd);
+        if (isPlayingRef.current) {
+            speakLine(currentIndexRef.current + 1);
+        }
 
     }, [scriptNodes, settings, globalSpeed, onPlayNext, pronunciationDictionary, allVoices, apiKeys]);
 
