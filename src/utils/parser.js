@@ -55,9 +55,9 @@ export function parseScript(text) {
         else if (/^\[.*\]$/.test(rawLine) || /^\(.*\)$/.test(rawLine)) {
             pushNode('DIRECTION', 'STAGE DIRECTIONS', rawLine);
         }
-        // Words in ALL CAPS followed by a colon JOHN: = DIALOGUE
+        // Words in ALL CAPS (and numbers) followed by a colon JOHN 1: = DIALOGUE
         else {
-            const match = rawLine.match(/^([A-Z\s]+):\s*(.*)$/);
+            const match = rawLine.match(/^([A-Z0-9\s]+):\s*(.*)$/);
             if (match) {
                 const character = match[1].trim();
                 const remainingText = match[2].trim();
