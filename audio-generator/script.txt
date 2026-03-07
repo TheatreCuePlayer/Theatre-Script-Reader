@@ -1,0 +1,717 @@
+@PRONUNCIATION
+ANTIGONE=Ann tig a knee
+ISMENE=Iz mee nee
+HAEMON=Hay mon
+EURYDICE=You rid a see
+ETEOCLES=Ee tee a cleez
+POLYNEICES=Paul ee ny seez
+@END_PRONUNCIATION
+
+# EDICT
+# A Modern Adaptation of Sophocles' Antigone by Kevin Patrick
+## SCENE ONE: THE PROLOGUE
+The Threshold. Before dawn. A corridor at the edge of The Bureau — where the building stops pretending to be welcoming. Exposed concrete. A single security camera, its red light blinking. A door to the outside is slightly ajar; a thin strip of gray pre-dawn light. The Bureau hum — fluorescent, mechanical, ever-present — runs underneath everything.
+ISMENE stands near the door, arms crossed, watching it. She has been waiting. She doesn't want to be here. ANTIGONE enters from deeper inside the building, moving quickly and quietly, checking behind her. She has been inside longer. She knows what she found.
+A beat. They look at each other.
+ANTIGONE: (low, urgent) You heard.
+ISMENE: I heard something. I don't know what I heard.
+ANTIGONE: Then I'll tell you what you heard. (she moves closer, drops her voice further) The Director issued an Edict this morning. Formal. Filed. Distributed through official channels.
+ISMENE: About the brothers.
+ANTIGONE: About the brothers.
+A beat.
+ISMENE: I don't want to know.
+ANTIGONE: You already know.
+Silence. The camera light blinks.
+ANTIGONE: (cont'd) Eteocles gets a state ceremony. Full honors. Auxiliary Force pallbearers. His designation was Compliant Personnel. He died in sanctioned service. He gets processed the right way.
+ISMENE: And Polyneices.
+ANTIGONE: Polyneices is classified as Non-Compliant Remains.
+ISMENE: closes her eyes.
+ANTIGONE: (cont'd) He's out there right now. Past the perimeter. No disposition. No recovery order. The Edict says he stays there as a — they used the phrase "material deterrent." A warning. For anyone else who thinks about disrupting —
+ISMENE: Stop.
+ANTIGONE: He's our brother, Ismene.
+ISMENE: I know who he is.
+ANTIGONE: The Edict makes it a Foundational Integrity Violation to approach the remains. To touch them. To perform any form of —
+ISMENE: What is the penalty.
+A beat.
+ANTIGONE: Public sequestration. They said stoning, but that's the old language. Now it just means: in front of everyone, and final.
+ISMENE presses her back against the wall. She's doing the math.
+ISMENE: So that's it. That's why you brought me out here in the dark, past the checkpoint —
+ANTIGONE: I brought you out here so they can't hear us.
+ISMENE: (looking at the camera) They can always hear us.
+ANTIGONE: (measured) I'm going to give him proper rites. I'm going to bring him back from that perimeter. And I need to know if you're with me.
+ISMENE: stares at her.
+ISMENE: You're asking me to commit a Foundational Integrity Violation.
+ANTIGONE: I'm asking you to help me bury our brother.
+ISMENE: Those are the same thing.
+ANTIGONE: They are not the same thing.
+A beat. When ISMENE speaks, it comes out quiet and deliberate — she has been saving this speech her whole life.
+ISMENE: Our father destroyed himself. He did it himself, with his own hands, when the truth got out. Our mother — you know what she did. And then — in one day — both of them. Both brothers. Both. One on each side of a line that didn't exist until the Bureau drew it. And we're still here. We're still here and we have nothing left and you want me to walk out to a restricted perimeter in the dark and put my hands on —
+ANTIGONE: Yes.
+ISMENE: We are not in a position to fight them, Antigone. We are women without institutional standing in a Bureau that is currently deciding whether our family name is a liability. If we defy a filed Edict —
+ANTIGONE: They don't own his body.
+ISMENE: They do. That's exactly what the Edict means. That's what it's for. They are saying his body belongs to the state now, as a lesson, and if we touch it we are the lesson next —
+ANTIGONE: I know what they're saying. I'm saying they don't have the right.
+ISMENE: Rights. (a short, bruised exhale) Antigone —
+ANTIGONE: You don't have to come. I'll do it alone. I'm telling you because I wanted to give you the choice.
+ISMENE: That's not a choice. That's an ultimatum dressed up as a choice —
+ANTIGONE: Then don't come. Stand here. File your compliance report in the morning. (not cruelly — factually) But I'm going.
+ISMENE turns away. Looks at the door. The light outside is still gray.
+ISMENE: What you're doing is going to get you killed.
+ANTIGONE: What they're doing already killed him. I'm just refusing to let it be the last word.
+ISMENE: (turning back) Let me come with you. Later. When there's less — let me think about it —
+ANTIGONE: There's no later. The longer he's out there, the more it becomes true. The more the Edict turns him into a thing instead of a person. I'm not waiting.
+ISMENE: (raw) I can't. I can't, Antigone, I'm sorry. I don't have — I'm not built the way you're built. I look at what they have and I need to still be alive at the end of it. That's not cowardice. That's just — that's what I have left.
+A long silence. ANTIGONE looks at her sister — not with contempt. With grief.
+ANTIGONE: I know.
+ISMENE: Don't tell anyone. Whatever you're going to do — don't tell anyone else. Keep it quiet and maybe —
+ANTIGONE: Maybe what?
+ISMENE: has nothing.
+ANTIGONE: (cont'd) I'm not doing it quietly. Quiet is what they want. Quiet is what makes the Edict work.
+ISMENE: So you want to get caught.
+ANTIGONE: I want it to be known that someone refused. That's different from wanting to get caught.
+ISMENE: It's not different. It's not different and you know it.
+ANTIGONE: moves toward the door. Stops.
+ANTIGONE: If I don't come back —
+ISMENE: Don't.
+ANTIGONE: Take care of yourself. You didn't choose any of this. None of it was fair to you.
+She means it. ISMENE looks like she might break. She doesn't.
+ISMENE: (barely) You're going to do it whether I say this or not.
+ANTIGONE: Yes.
+ISMENE: Then go. Just — go.
+A beat. ANTIGONE looks at her sister one more time. Then she pushes the door open.
+The light from outside — still pre-dawn, still gray — spills into the corridor for a moment.
+Then the door closes.
+ISMENE stands alone. The camera light blinks. The Bureau hums.
+Blackout.
+ 
+
+## SCENE TWO: THE PARODOS & FIRST EPISODE
+The Atrium. Full institutional lighting. The Bureau seal dominates upstage. The briefing lectern stands stage left, unoccupied. The PRESS POOL has assembled: LEGACY MEDIA on one side (credentialed, comfortable), INDEPENDENT MEDIA on the other (cameras out, more urgency). The room hums. The PRESS SECRETARY stands at the lectern, reviewing notes.
+### FRENCH SCENE PART ONE: THE PARODOS (Press Briefing — Naturalistic Mode)
+PRESS SECRETARY: We'll get started. Full operational summary of last night's resolution of the Civil Disruption at the eastern perimeter. Questions after the address. After.
+Camera shutters. Recorders click on.
+LEGACY REPORTER 1: Perimeter security restored by oh-three-hundred?
+PRESS SECRETARY: Perimeter integrity has been maintained. Yes.
+LEGACY REPORTER 2: The Director's office called it a "comprehensive operational success." Official characterization?
+PRESS SECRETARY: It is.
+INDEPENDENT REPORTER 1: How many casualties?
+PRESS SECRETARY: Auxiliary Force figures are in your briefing packets.
+INDEPENDENT REPORTER 1: Total casualties. Including Dissident-affiliated.
+A small, precise pause.
+PRESS SECRETARY: Individuals who participated in the Civil Disruption assumed a legally documented risk of engagement. That information is being processed.
+INDEPENDENT REPORTER 2: "Being processed" — you don't know, or you're not releasing it?
+PRESS SECRETARY: All figures will be released through proper channels. Moving on —
+INDEPENDENT REPORTER 1: Reports that Auxiliary Force units deployed crowd-dispersal on a residential block outside the designated disruption zone?
+A ripple through the room.
+PRESS SECRETARY: The Bureau's operations complied with all authorized use-of-force protocols.
+INDEPENDENT REPORTER 1: There are photos.
+PRESS SECRETARY: There are always photos.
+(Transition: The PRESS POOL shifts into FACTION CHANT — structured, elevated, the two sides speaking to the audience and each other.)
+OVERLAPPING — with LEGACY MEDIA  and INDEPENDENT MEDIA
+LEGACY MEDIA: The disruption is over. / The perimeter held. / We are past the worst of it.
+INDEPENDENT MEDIA: (simultaneously) The body count is incomplete. / The zone was wider than reported. / We are not past anything.
+LEGACY REPORTER 2: (snapping) One of them killed a man in uniform.
+INDEPENDENT REPORTER 2: One. You're using one to account for all of them —
+PRESS SECRETARY: (cutting through) We will wait for The Director.
+Silence. Not comfortable. Just held.
+A door opens upstage. The PRESS POOL reassembles into order. THE DIRECTOR enters, two aides behind. He wears institutional colors — nothing military, nothing civilian. He moves to the lectern with the ease of a man who has never doubted his right to it. The Press Secretary steps aside. He does not acknowledge her.
+### FRENCH SCENE PART TWO: THE ADDRESS (The Director's Inaugural — Episode 1)
+THE DIRECTOR: (no preamble) The Bureau has weathered a significant challenge to its operational integrity. You are here because the record needs to be set correctly, from this office, today.
+Shutters fire. He waits.
+THE DIRECTOR: (cont'd) I have been in this institution thirty-one years. What I have never watched, until recently, is this institution allow its foundational operating principles to be treated as negotiable by individuals who have no standing to negotiate them.
+INDEPENDENT REPORTER 1: Can you define —
+PRESS SECRETARY: After the address.
+THE DIRECTOR: No institution can hold if the individuals charged with its protection cannot be distinguished from those charged with its disruption. That distinction is not political. It is foundational.
+A Legacy Reporter writes approvingly. An Independent Reporter watches the Director's hands.
+THE DIRECTOR: (cont'd) I am formally announcing the terms under which the Bureau will process the remains of the two principal combatants in last night's Civil Disruption.
+The room stills.
+THE DIRECTOR: (cont'd) Auxiliary Force Personnel — call sign Eteocles — died in authorized service. He will receive full state honors. His Remains Disposition will be conducted with all appropriate ceremony. The record will reflect his service.
+LEGACY MEDIA: makes brief approving sounds. Flash photography.
+THE DIRECTOR: (cont'd) The individual designated Unsanctioned Dissident — operating under the name Polyneices — led an unauthorized incursion against Bureau infrastructure and died in the commission of a Foundational Integrity Violation.
+A beat. He is very still.
+THE DIRECTOR: (cont'd) No Remains Disposition will be authorized. His body will remain at the eastern perimeter, unsecured and unprocessed, as a material deterrent. This is not punitive. It is a communication.
+Long pause. Camera shutters.
+INDEPENDENT REPORTER 2: (quiet, involuntary) He had a family.
+THE DIRECTOR: turns toward the voice. Slowly.
+THE DIRECTOR: I'm sorry?
+INDEPENDENT REPORTER 2: (not backing down, but smaller now) The Unsanctioned Dissident. He had a family. I'm noting that for the record.
+THE DIRECTOR: So did every Auxiliary Force officer who came home in a bag last night.
+(back to the room, even-keeled)
+The Edict is filed, operative, and non-negotiable. Any individual who approaches or attempts any form of rite over the Non-Compliant Remains will be charged with a Foundational Integrity Violation. The sanctioned consequence is Terminal Sanction. There is no appeal.
+TERRIBLE UNISON. The entire PRESS POOL speaks as one. The PRESS SECRETARY's hands go still on her notes.
+THE PRESS POOL: (in unison) The Edict was issued. (pause) The Edict was lawful. (pause) The record will reflect that no one in this room said otherwise.
+A beat of terrible silence. Recorders re-lift. The PRESS SECRETARY steps back to the lectern.
+PRESS SECRETARY: The Director will take a limited number of questions —
+A commotion at the back. A side door opens — staff entrance — and THE DESK CLERK enters. ID badge listing sideways, clothes that belong behind a desk. They are trying to walk quietly and failing.
+### FRENCH SCENE PART THREE: THE INCIDENT (The Desk Clerk's Report)
+PRESS SECRETARY: (low, to an aide) Who cleared that entrance —
+THE DESK CLERK: I need to report — I was told to come directly —
+THE DIRECTOR looks at them. The Desk Clerk stops.
+THE DIRECTOR: Who are you.
+THE DESK CLERK: Records Division. Data Entry, Tier Three. I want it on record before anything else that I personally did not —
+THE DIRECTOR: What happened.
+THE DESK CLERK: A monitoring anomaly was flagged at the eastern perimeter. Zero-four-seventeen. It was routed to overnight staff — to me. I ran the standard verification protocol. Everything was —
+THE DIRECTOR: The anomaly.
+THE DESK CLERK: Someone accessed the restricted perimeter. When the morning shift checked the site, the remains had been — there was evidence of ritual contact. Dust had been disturbed. Something had been placed. Someone attempted Remains Disposition.
+A sound moves through the room. Controlled. Frightened.
+THE DIRECTOR: When.
+THE DESK CLERK: The access window is between zero-three-forty-five and zero-five-hundred. No tread marks, no physical trace. The overnight perimeter detail saw nothing. Their confirmations are logged — I have the logs —
+They produce a crumpled paper. No one takes it.
+THE DIRECTOR: Who did it.
+THE DESK CLERK: Currently unknown. No visual identification. The access was very clean.
+THE DIRECTOR: (turning to the room) In the hours between the filing of a legally operative Edict and this briefing, someone performed an unauthorized act of bodily reclamation on a designated non-recoverable individual. That is not spontaneous. That is coordinated.
+INDEPENDENT REPORTER 1: Or it's someone who knew him.
+THE DIRECTOR: (without looking at them) I'm not finished.
+(to the Desk Clerk)
+You and your entire overnight rotation are on Administrative Hold pending a full compliance review. You will not leave Bureau grounds.
+THE DESK CLERK: I reported it. I came here to report it —
+THE DIRECTOR: You had to.
+A beat. The Desk Clerk understands what that means.
+THE DIRECTOR: (cont'd) (to the room) The offending party will be identified. If the perimeter detail failed to prevent access, they will answer for that failure. When the individual is found — the Terminal Sanction will be carried out in view of the public record. The Edict will hold.
+He steps back. Already moving toward the door.
+PRESS SECRETARY: (controlled, professional, after him) The Bureau thanks you for your attention. This briefing is concluded.
+The room erupts — both factions at once, shouted questions, cameras surging forward. The PRESS SECRETARY stands at the lectern absorbing it.
+The DESK CLERK stands near the side door, forgotten. They look at the crumpled log in their hand. Fold it carefully. Put it back in their pocket.
+They look at the nearest camera.
+Then they look away.
+Lights shift.
+## SCENE THREE: THE ODE TO MAN & SECOND EPISODE
+### FRENCH SCENE PART ONE: THE MEDIA MONTAGE (Ode to Man — Faction Chant Mode)
+The Atrium. The briefing has ended, but the PRESS POOL has not dispersed. Cameras still live. Feeds still running. The lectern is empty. What follows is not a press conference. It is the press talking to itself, to its feeds, to the ambient archive of everything ever broadcast. The two factions do not argue here — they are briefly, unsettlingly, unified in subject matter if not in tone. Lines come fast, overlapping at the edges, like a dial spinning through channels.
+OVERLAPPING — LEGACY and iNDEPENDENT reporters
+LEGACY REPORTER 1: The state has mapped every coastal formation within its territorial claim.
+INDEPENDENT REPORTER 1: (simultaneously) The state has mapped every communication pattern within its civilian network.
+LEGACY REPORTER 2: Satellite imaging now permits identification of individuals at open-air gatherings —
+INDEPENDENT REPORTER 2: — at protest sites, border crossings, places of worship —
+LEGACY REPORTER 1: — within a margin of error of point-three meters. Remarkable.
+LEGACY REPORTER 2: Bureau facial recognition covers eighty-seven percent of public transit —
+INDEPENDENT REPORTER 1: Eighty-seven percent that has been disclosed —
+INDEPENDENT REPORTER 2: Documented by whom?
+INDEPENDENT REPORTER 1: They can track a single phone through seventeen cell towers in forty seconds.
+INDEPENDENT REPORTER 2: They can read a text message before it's sent.
+LEGACY REPORTER 1: Remarkable what we've built.
+INDEPENDENT REPORTER 1: Remarkable what we've built.
+They look at each other. A beat of genuine, uncomfortable unison.
+LEGACY REPORTER 2: The system adapts. The system learns.
+INDEPENDENT REPORTER 2: The system cannot learn what it's designed not to see.
+LEGACY REPORTER 1: And yet — disease. Managed.
+INDEPENDENT REPORTER 1: And yet — famine. Managed in some places.
+LEGACY REPORTER 2: Infrastructure at a scale no prior civilization —
+INDEPENDENT REPORTER 2: And still, against death — nothing. Against grief — nothing.
+A beat.
+LEGACY REPORTER 1: (quieter) Against the end of things —
+INDEPENDENT REPORTER 1: (quieter) — nothing. We have built everything and we cannot build our way out of nothing.
+A silence. Then,
+PRESS POOL: (together — not Terrible Unison, something more uneasy, a half-step below it) When it honors the laws it was founded to uphold — it stands. When it bends those laws to hold its own shape — (pause) we will report on what comes next.
+The side door opens. THE DESK CLERK enters — faster than before, slightly wild-eyed, wearing the expression of someone who has just survived something and hasn't processed it. They are almost smiling, which is worse. Behind them, at a remove, TWO AUXILIARY FORCE OFFICERS escort ANTIGONE. The PRESS POOL sees her first. Cameras lift.
+### FRENCH SCENE PART TWO: THE CATCH (The Desk Clerk Returns)
+THE DESK CLERK: (half to the room) We found her. The perimeter breach subject. She came back. The overnight flags were still active, so when the monitoring system kicked the anomaly a second time, I ran the protocol. We went to the site.
+They notice the cameras. Pull the tablet closer to their chest.
+THE DESK CLERK: (cont'd) She was right there. Not hiding. Just — there.
+THE DIRECTOR: has entered from upstage — sent for, arriving mid-report. He watches the Desk Clerk with an expression that provides absolutely no information.
+THE DESK CLERK: (cont'd) (clocking the Director) Sir. She was apprehended while actively performing additional rites over the remains. She didn't run. She just looked at us.
+(something slightly human breaks through)
+I'm just telling you what happened.
+THE DIRECTOR: (to the Officers) Leave us.
+The Officers withdraw. The Desk Clerk edges toward the door.
+THE DIRECTOR: (without turning) Not you.
+### FRENCH SCENE PART THREE: THE CONFRONTATION (The Director and Antigone)
+THE DIRECTOR looks at ANTIGONE. She is not performing anything — present, still, having already made the decision that put her here. The PRESS POOL watches. Cameras record.
+THE DIRECTOR: Did you do it.
+ANTIGONE: Yes.
+THE DIRECTOR: (to the Desk Clerk) You're released from Administrative Hold. File the apprehension report through standard intake.
+THE DESK CLERK: (relief flooding through them) Yes, sir. Thank you, sir.
+They go. Quickly.
+THE DIRECTOR: The Edict was public. You knew it.
+ANTIGONE: Of course I knew it.
+THE DIRECTOR: And you chose to —
+ANTIGONE: I didn't make a choice. I did the thing that had to be done.
+THE DIRECTOR: Those are the same thing.
+ANTIGONE: They're not.
+The PRESS POOL is very still. LEGACY REPORTERS look at their notepads. INDEPENDENT REPORTERS look at Antigone.
+THE DIRECTOR: What authority do you believe supersedes a formally filed, legally operative Edict?
+ANTIGONE: An Edict is paper and ink. What I did is blood and bone.
+A small intake of breath in the Press Pool.
+THE DIRECTOR: That's not an answer.
+ANTIGONE: You wrote a law that said his body belongs to the state. His body does not belong to the state. You put him out there as a sign — a billboard. You're using him to communicate what happens when you oppose you. You didn't deny him burial rights. You took his body as a resource.
+THE DIRECTOR: You are describing state policy as though it were personal.
+ANTIGONE: It is personal. He's my brother.
+THE DIRECTOR: He was an Unsanctioned Dissident who —
+ANTIGONE: He's my brother.
+(she will not use the other language)
+He was alive. He isn't now. That transition belongs to him and to the people who loved him. Not to you.
+THE DIRECTOR turns slightly away. Addresses the room.
+THE DIRECTOR: She knew the penalty. She performed the act. She is confirming it, without remorse, in front of a full press record.
+(turning back)
+What were you expecting?
+ANTIGONE: I wasn't expecting anything. I wasn't doing it to make a point.
+THE DIRECTOR: Then why publicly?
+ANTIGONE: Because doing it quietly would have meant agreeing with you. It would have meant his burial was something to be ashamed of. It's not.
+THE DIRECTOR: (a long pause — then, to the room) This is stubbornness dressed as principle.
+(to Antigone)
+I want you to demonstrate that you understand the weight of what you've done.
+ANTIGONE: Do you want to tell me you're going to kill me now?
+THE DIRECTOR: Yes.
+ANTIGONE: Then stop talking and do it. There's nothing in what you're saying that I want.
+A charged silence.
+THE DIRECTOR: (to the room) If I bend for her, I validate the act. If I validate the act, the Edict fails. If the Edict fails, the next Civil Disruption is emboldened. This is not about one person.
+ANTIGONE: (quietly) It's always about one person. That's the thing you can't process.
+THE DIRECTOR: (pivoting) And your sister. Ismene. I want her brought in.
+Antigone's expression shifts — the first involuntary movement she's made.
+ANTIGONE: She had nothing to do with it.
+THE DIRECTOR: We'll determine that.
+ANTIGONE: She refused. She's innocent.
+THE DIRECTOR: (to an aide) Bring her.
+### FRENCH SCENE PART FOUR: ISMENE'S ENTRANCE
+A door opens. ISMENE is brought in — not in restraints, but escorted. She has been crying, or very close to it, and has pulled herself back from the edge. She looks at ANTIGONE.
+Something breaks in her face.
+ISMENE: (to The Director) I was part of it. Whatever she's charged with, I'm —
+ANTIGONE: (flat) No.
+ISMENE: Antigone —
+ANTIGONE: You didn't do it. Don't do this.
+ISMENE: (to The Director) I knew. I could have stopped her. I'm culpable —
+ANTIGONE: (to Ismene, direct) Stop. You made your choice. I made mine. They're not the same choice and I won't let you pretend they are.
+ISMENE: You're my sister —
+ANTIGONE: This isn't yours to take. I did it and you are not going to step in at the end and make it into something we did together because you feel guilty.
+(a beat — the sister underneath the resolve)
+I don't want you here.
+The word lands. ISMENE takes a breath.
+ISMENE: (to The Director — quietly) She's all I have left.
+THE DIRECTOR: (without cruelty, which is its own kind of cruelty) That's no longer a relevant consideration.
+(to Antigone)
+If you want to love something, love it in the place you're going.
+ANTIGONE: (her last word in this scene) You won't even know what you've done until it's already done. That's the thing about grief. It doesn't file in advance.
+THE DIRECTOR: turns away. The scene's business is concluded for him.
+ISMENE: looks at her sister. ANTIGONE looks back — and for a moment, before the Auxiliary Force Officers return, they are just two people in a room.
+Then the officers enter. And they are not.
+Lights shift.
+## SCENE FOUR: THE THIRD EPISODE
+### FRENCH SCENE PART ONE: THE SECOND ODE (Faction Chant — The Weight of Inherited Ruin)
+The Atrium. A shift in light — cooler, grayer, the directional rigs dimmed to something more ambient. The lectern is unoccupied. The PRESS POOL remains, but they are not performing press now. They are, briefly, something older than reporters. The PRESS SECRETARY stands to one side, reviewing a tablet. She is not directing this. She is listening.
+LEGACY REPORTER 1: (not reading from notes) When a family is marked — when the record catches up to a name —
+INDEPENDENT REPORTER 1: It doesn't stop with one generation.
+LEGACY REPORTER 2: The father's file opens. Then the children's files open.
+INDEPENDENT REPORTER 2: The institution has a long memory.
+LEGACY REPORTER 1: We've watched this house before.
+INDEPENDENT REPORTER 2: We've reported this house before.
+LEGACY REPORTER 2: Each time we thought: this is the last of it.
+INDEPENDENT REPORTER 1: Each time there was more.
+A beat.
+PRESS POOL: (together — edging toward Terrible Unison, not yet there) The last living branch of a broken line. And even that — (pause) even that is not safe now.
+LEGACY REPORTER 2: (quieter) There's a thing that happens when power stops answering to anything outside itself.
+INDEPENDENT REPORTER 1: We have a word for it.
+LEGACY REPORTER 1: (not saying it) Yes.
+INDEPENDENT REPORTER 2: The hope of correction is a real thing. We've seen it work.
+INDEPENDENT REPORTER 1: We've also seen what happens when someone who could correct it decides not to.
+A long silence.
+PRESS SECRETARY: (quietly, to herself) The Director's son has requested a private meeting.
+(a beat)
+It's not going to be private.
+She looks up. The PRESS POOL looks at her. A door opens.
+### FRENCH SCENE PART TWO: HAEMON'S ARGUMENT (Episode 3 — A Rational Policy Debate)
+HAEMON enters. Younger than his father by thirty years, dressed for the building — the jacket is right, the tie is loosened. He moves like someone who knows this room and is trying not to use that knowledge as a weapon. THE DIRECTOR stands center. The cameras are still on.
+THE DIRECTOR: I assume you've heard.
+HAEMON: I've heard.
+THE DIRECTOR: And?
+HAEMON: Your judgment has never cost me anything before. I'm not starting now.
+(a beat)
+But you need to hear what I'm hearing outside this building.
+THE DIRECTOR: Which is.
+HAEMON: The city isn't reading this the way you need it to read it. The Edict was filed correctly — I'm not contesting the framework. I'm telling you the constituency response is not what the briefing metrics are showing you, and that gap is going to become a problem.
+THE DIRECTOR: The constituency response —
+HAEMON: People are talking about her. Not as a Foundational Integrity violator. As a person who buried her brother. That's the story that's moving.
+A shift in the room. Legacy Reporters write. Independent Reporters look up.
+THE DIRECTOR: That's a framing issue. The Press Secretary can —
+HAEMON: It's not a framing issue. Framing issues live in the press briefing. This is living in the street. You cannot re-frame grief. Right now your Edict is asking people to watch the state treat grief as a crime.
+THE DIRECTOR: The Edict is not about grief —
+HAEMON: I know what it's about. I'm telling you what it looks like.
+A beat.
+THE DIRECTOR: You're asking me to reverse a filed directive because of public sentiment.
+HAEMON: I'm asking you to consider whether the directive achieves what you need it to achieve, or whether it's now creating more disruption than the original Civil Disruption did. The strongest institutions are the ones that can self-correct. That's not weakness. That's function.
+THE DIRECTOR: (a long pause) I know the argument. I've used the argument.
+HAEMON: Then you know it's a good one.
+THE DIRECTOR: It's a good argument for ordinary policy. If I pull the Edict now, I've communicated to every person currently deciding whether our laws apply to them that the answer is negotiable.
+HAEMON: What you've communicated right now is that the state will leave a body in the street rather than admit a boundary was drawn in the wrong place.
+THE DIRECTOR: She committed a Foundational Integrity Violation.
+HAEMON: She covered her brother's body with her hands.
+THE DIRECTOR: In direct defiance of a lawful —
+HAEMON: I know what it was. I'm telling you what it was at the same time.
+A beat.
+THE DIRECTOR: I cannot run this institution if every individual with a grievance decides their personal loyalty supersedes —
+HAEMON: It's not about her grievance. People who have no connection to this family or to the Dissident are angry. That's data. That matters to institutional stability.
+THE DIRECTOR looks at his son for a long moment.
+### FRENCH SCENE PART THREE: THE BREAK (A Brutal Family Fight)
+THE DIRECTOR: (quietly) Who told you to come here.
+HAEMON: No one told me —
+THE DIRECTOR: Did she send you?
+HAEMON: I came because you're my father and you are about to make a decision that cannot be unmade.
+THE DIRECTOR: (something shifting under the surface) You came because of her.
+HAEMON: I came because of you.
+THE DIRECTOR: (with a precision that is worse than shouting) I am aware of what she is to you. It changes nothing. I will not unmake a lawful directive because my son is in love with the person who violated it. That is not governance. That is compromise at gunpoint.
+HAEMON: No one is holding a gun.
+THE DIRECTOR: She is. Whether she planned it or not — that is the function.
+HAEMON: (and something breaks open in him) You want to talk about optics? A man who runs an institution executes his son's fiancée because he can't tell the difference between a security threat and a woman who put dirt on her brother's face. That's the story that doesn't come back.
+THE DIRECTOR: (cold) Watch yourself.
+HAEMON: I am watching. The people I talk to outside this building are watching. You are not the only person in this city with a sense of what this institution is supposed to be for.
+THE DIRECTOR: (flat, dangerous) I am the only person in this building who decides what this institution is for.
+HAEMON: That's not an institution. That's a room with one person in it.
+The silence that follows is the worst one yet.
+THE DIRECTOR: (very quietly) You are speaking to me from inside a feeling, and feelings are not policy. The Edict holds.
+HAEMON: If the Edict holds, she dies.
+THE DIRECTOR: Yes.
+HAEMON: (stripped down) Then you're choosing the Edict over her life.
+THE DIRECTOR: I'm choosing the continuity of this institution over a single Foundational Integrity Violation. Yes.
+HAEMON: She's a person.
+THE DIRECTOR: (and here is the line he cannot take back) Everyone who dies in this building's jurisdiction is a person. I can't run it that way.
+A long, terrible pause.
+HAEMON: (not a threat — a fact, which is worse) Then I'm done here.
+THE DIRECTOR: (something cracking — suddenly raw) Done. She's made you say "done" to your own father —
+HAEMON: You made me say it.
+THE DIRECTOR: (losing the institutional frame entirely) She will be processed. Today. And since you insist on making this personal — you'll hear about it the way the public does. Through the official record.
+HAEMON looks at his father. Searches his face for something.He doesn't find it.
+HAEMON: (quietly) I don't think you know what you're doing anymore. I think you stopped knowing a while ago and the paperwork has been covering for you.
+He walks to the door.
+THE DIRECTOR: (at his back — not the Director now, a frightened man swinging at what he cannot control) The Terminal Sanction will be carried out in public view. You want to be in public view, you can watch.
+HAEMON: stops. Doesn't turn around.
+HAEMON: (quiet, final) You won't see my face again.
+He leaves. The door closes.
+THE DIRECTOR stands in the center of the room. The PRESS POOL is very still. The PRESS SECRETARY has not moved — looking at something on her tablet that she is not reading.
+THE DIRECTOR straightens his jacket. The institutional posture reassembles itself, component by component.
+THE DIRECTOR: (to the Press Secretary, as if the last five minutes were procedure) Schedule the Disciplinary Sequestration for the afternoon session. Standard channels.
+PRESS SECRETARY: (a beat — she looks up) Yes, sir.
+TERRIBLE UNISON. The PRESS POOL speaks. The PRESS SECRETARY goes still.
+THE PRESS POOL: (in unison) It was determined. (pause) The record will show it was determined. (pause) The record will not show his face when he said it.
+Lights shift.
+## SCENE FIVE: THE KOMMOS — ANTIGONE'S FINAL WALK
+### FRENCH SCENE PART ONE: THE THIRD ODE (Faction Chant — On Love and What It Ruins)
+The Atrium. THE DIRECTOR has just exited. The PRESS SECRETARY stands at the lectern — not preparing a briefing. Looking at the door Haemon left through. The PRESS POOL is at half-attention: laptops open, phones out, feeds running. The institutional temperature has dropped. What follows is reporters thinking out loud. They are on the record.
+
+INDEPENDENT REPORTER 2: (almost to themselves) You want to know what makes a rational person do something that can't be undone? It's love. Every story I've covered that didn't make sense at the policy level — at the bottom of it, someone loved someone.
+LEGACY REPORTER 2: That's not analysis.
+INDEPENDENT REPORTER 1: That's because it can't be analyzed. That's the point.
+LEGACY REPORTER 1: We're not here to —
+INDEPENDENT REPORTER 2: She covered a body with her hands. He just told his father he was done. Does the analysis explain any of that?
+A silence.
+LEGACY REPORTER 2: (quietly) No.
+INDEPENDENT REPORTER 1: There's a thing older than law.
+LEGACY REPORTER 1: Don't say that on the record.
+INDEPENDENT REPORTER 1: I'm saying it on the record. Every time it runs into law, someone ends up in this building for it. And we cover the building. And we file the story. And we go home.
+PRESS POOL: (together — barely above a murmur, the unison accidental and therefore more unsettling) And the law stands. And the feeling stands. And neither one of them knows how to stop.
+The PRESS SECRETARY looks up. Looks at the Press Pool. Then at her notes.
+PRESS SECRETARY: (flat, professional — but something underneath) The subject is being transferred.
+The room reassembles. Cameras lift.
+### FRENCH SCENE PART TWO: THE GAUNTLET (Antigone's Final Walk — The Kommos)
+The Atrium reconfigures: a corridor of bodies. The PRESS POOL lines both sides — equipment out, mics extended, cameras forward. Overhead lighting supplemented by camera flashes, a strobe-like percussion of white light.
+TWO AUXILIARY FORCE OFFICERS enter, flanking ANTIGONE. She is not restrained. She is moving. She looks like herself. That is the most unsettling thing about her.
+The PRESS POOL erupts — overlapping, fragmented. The following lines are partially simultaneous.
+LEGACY REPORTER 1: (into camera, broadcast register) Bureau officials confirm the subject is being transferred to a secure containment facility pending final disposition —
+INDEPENDENT REPORTER 2: (shouting toward Antigone) Can you tell us what you want people to know —
+LEGACY REPORTER 2: (into feed) The Director's office characterizes this as a routine enforcement action —
+INDEPENDENT REPORTER 1: (shouting) Did you act alone? Are there others —
+PRESS SECRETARY: (at the lectern) The Bureau asks that all credentialed media maintain a two-meter clearance —
+INDEPENDENT REPORTER 2: What do you want them to do with your brother's —
+ANTIGONE stops walking.
+The noise doesn't stop — but something else does. Both Officers halt. The quiet spreads outward from her like a ripple.
+She is not performing. She is not breaking down. She is standing in the middle of the gauntlet looking at the room as if committing it to memory.
+When she speaks, she does not project. The room quiets enough to hear her anyway.
+ANTIGONE: (to the room — to the cameras — to no one, to everyone) Look at me. Not the subject. Not the violation. Me.
+I'm twenty-three years old and I'm being walked to a sealed room because I put my hands on my brother's body and said his name out loud. That's all that happened. I need that to be in the record.
+Camera flashes. The PRESS SECRETARY starts to speak. ANTIGONE continues.
+ANTIGONE: (cont'd) I won't see daylight again. They're calling it a "containment unit."
+(the bureaucratic word lands wrong in her mouth)
+It has a ceiling. Walls. Enough to survive on, technically. No window. I had a life. There were things I was going to do.
+An INDEPENDENT REPORTER moves closer with a handheld. An Officer raises a hand.
+PRESS SECRETARY: Two meters —
+ANTIGONE: (to the Independent Reporter, directly) I'm not afraid. I'm angry. There's a difference.
+INDEPENDENT REPORTER 2: (quietly, camera still rolling) What are you angry about?
+ANTIGONE: That I have to explain it. That my brother is still out there. That the Edict is still the Edict. That you're going to file your stories and go home and it will be organized — categorized and tagged and archived. And I'll be in a room.
+A flash. Another.
+LEGACY REPORTER 1: (into their camera, lower — the broadcast voice cracking) The subject appears to be —
+They stop. Don't finish the sentence. The camera keeps rolling.
+THE DIRECTOR enters from upstage. Takes in the scene — Antigone standing, the gauntlet dissolved into something uncontrolled. His jaw tightens. He crosses to the PRESS SECRETARY.
+THE DIRECTOR: (low) Why has the transfer stopped?
+PRESS SECRETARY: She stopped.
+He looks at Antigone. She looks back at him.
+THE DIRECTOR: (to the Officers) Continue the transfer.
+ANTIGONE: (to The Director — not loud, not theatrical) Is there anything you want to say to me? Before —
+THE DIRECTOR: There's nothing productive left to say.
+ANTIGONE: Not productive. Just — something.
+Every camera is on The Director now.
+THE DIRECTOR: (and there is, briefly, something human in him — not remorse, but recognition: she is a person and he is about to erase her and he knows it) What you did was —
+(a beat — then the institutional frame reasserts, audibly)
+— a Foundational Integrity Violation. I didn't design the law around exceptions.
+ANTIGONE: holds his gaze.
+ANTIGONE: (quietly) I know. That's the problem with what you built.
+(barely carrying)
+His name was Polyneices. He was my brother. I would do it again.
+She turns back to the Officers. She begins to walk. The PRESS POOL parts to let her through.
+OVERLAPPING — but not combatively. The sound of a room that has witnessed something and doesn't have the language for it.
+LEGACY REPORTER 2: (into camera, smaller) Bureau officials confirm the transfer is proceeding in accordance with —
+INDEPENDENT REPORTER 1: (watching her go) She said she'd do it again.
+LEGACY REPORTER 1: (into camera, smaller) — and characterize this as a —
+INDEPENDENT REPORTER 2: (watching her go) She said his name.
+LEGACY REPORTER 2: (into camera, barely) — a standard enforcement —
+LEGACY REPORTER 1 sets the camera down.
+LEGACY REPORTER 1: (to no one) I covered the Civil Disruption. I was at the perimeter.
+INDEPENDENT REPORTER 1: We all were.
+ANTIGONE reaches the far door. She doesn't look back. The door closes.
+TERRIBLE UNISON. The PRESS SECRETARY's hands are flat on the lectern. She does not speak.
+THE PRESS POOL: (in unison) She walked. (pause) The record will show she walked without being carried. (pause) The record will show she said his name. (pause) The record will not show what that cost.
+A long silence.
+THE DIRECTOR: (to the room — attempting to reclaim the register) The Bureau thanks the credentialed press for their patience. The matter is concluded. The Edict stands.
+He straightens his jacket. No one writes it down.
+Lights shift.
+## SCENE SIX: THE FIFTH EPISODE — THE FORMER DIRECTOR
+### FRENCH SCENE PART ONE: THE FOURTH ODE (Press Pool Absent — The Room Between Briefings)
+The Atrium. The press pool has dispersed. Chairs at wrong angles, a coffee cup on the floor, a forgotten notebook on the back row, one camera light blinking red on a tripod no one retrieved. THE PRESS SECRETARY is alone, tidying with the focused efficiency of someone who tidies when they cannot do anything else.
+She stops. Looks at the room.
+PRESS SECRETARY: (to the empty room) There were others before this. Women who ran into the same wall at different speeds. The record keeps saying the same thing — the authority was total, the sentence was final, and history found the authority excessive after the fact.
+After the fact.
+(a beat)
+I stand at that lectern every day and I explain the fact. And then history explains it again later. And the explaining never seems to change what happens next.
+She picks up the forgotten notebook.
+PRESS SECRETARY: (cont'd) I know what I do here. I've always known. The question is whether knowing is enough to make me different from the ones who didn't.
+She puts the notebook on the lectern.
+A side door opens — not the main entrance, not the staff entrance. THE FORMER DIRECTOR enters. Older than THE DIRECTOR. No badge, no tablet. Dressed well and without insignia — the clothes of a man who no longer needs to signal his rank. He crosses to the blinking tripod. Turns off the red light.
+THE FORMER DIRECTOR: Tell him I'm here.
+PRESS SECRETARY: He's in the anteroom.
+THE FORMER DIRECTOR: I know where he is. I used to have that office.
+### FRENCH SCENE PART TWO: THE PRIVATE MEETING (Episode 5 — Cold and Transactional)
+The anteroom — a smaller light, the lectern moved aside, two chairs at angles suggesting a meeting that was not scheduled. THE DIRECTOR enters and stops when he sees who is waiting.
+THE DIRECTOR: (measured) I wasn't expecting you.
+THE FORMER DIRECTOR: I know. Sit down.
+The instruction lands with the ease of thirty years. THE DIRECTOR sits — then appears to realize he sat when told to. He does not stand back up.
+THE DIRECTOR: If this is about the Edict —
+THE FORMER DIRECTOR: It's about what the Edict is producing.
+(moving slowly around the perimeter, hands in pockets)
+The enforcement optics on the Dissident's remains have become the story. Not the Civil Disruption, not the Auxiliary Force losses — the body. Who controls it, and what the state's claim to that control means.
+THE DIRECTOR: That's a messaging problem —
+THE FORMER DIRECTOR: It's not a messaging problem. Three of your major infrastructure underwriters have sent quiet inquiries in the last seventy-two hours asking about "long-term stability indicators." One used the phrase "ideological overreach." These are not dissidents. These are the people who paid for the equipment your Auxiliary Force was wearing when they dispersed the Civil Disruption.
+THE DIRECTOR: What they paid for was the guarantee of order —
+THE FORMER DIRECTOR: The Edict is using a dead body as a political prop, and that optic has a very short shelf life before it costs more than it communicates.
+(sitting — unhurried)
+What you purchased with the Edict was a short-term deterrent and a long-term liability. The deterrent is already degrading — people are angry, not afraid. This is not my opinion. This is what I'm being told by people whose opinion is priced into your institutional budget.
+THE DIRECTOR: (a flash of heat) I will not be told how to run this office by —
+THE FORMER DIRECTOR: (no change in temperature) By me? I handed you this office because your instincts were sound. I'm here to find out if they still are.
+A pause.
+THE DIRECTOR: (lower) I made a lawful determination. If I pull the Edict, I've signaled the institution will reverse itself under public pressure.
+THE FORMER DIRECTOR: You're not wrong. But the pressure isn't coming from the wrong place. It's coming from the people who define what the wrong place is.
+(a beat)
+The error was not making the Edict. The error is refusing to acknowledge it has produced a secondary effect that is now running ahead of you.
+THE DIRECTOR: You're telling me to reverse.
+THE FORMER DIRECTOR: I'm telling you that institutional correction is not the same as institutional weakness. Correct toward function. Before the cost of not correcting exceeds the cost of correction.
+THE DIRECTOR: (colder) Is this coming from the coalition, or from you?
+THE FORMER DIRECTOR: (precisely) I funded the first expansion of this building's perimeter infrastructure. I funded the Auxiliary Force tactical training program. I have a twenty-three-year investment in the stability of this institution, and I am telling you that what you are doing with one body is destabilizing something I spent two decades building.
+(a beat)
+It's coming from me.
+THE DIRECTOR: (reaching for contempt because he cannot reach for anything else) You've been on restricted access for fourteen months. You don't have a full operational picture —
+THE FORMER DIRECTOR: I don't need a full picture. I need the one I have: the institution is about to break something it cannot unbreak, and the person who could stop that is choosing not to because he is more invested in being right than in being correct.
+A silence.
+THE DIRECTOR: I appreciate the counsel. I'll take it under —
+THE FORMER DIRECTOR: I'm not done.
+THE DIRECTOR: stops. The transactional quality is gone from The Former Director's voice. What's underneath is not warmer — it is more precise, and therefore more frightening.
+### FRENCH SCENE PART THREE: THE PROPHECY OF LOSS
+THE FORMER DIRECTOR: What I'm going to say now is not a policy recommendation. It is a statement of consequence.
+(holding the stillness)
+You have put a living person into sealed containment for honoring the dead. You have left the dead in public view as a state instrument. In doing both simultaneously, you have violated the basic contract that makes authority legible to the people who live under it. The contract that says: the state protects the living and releases the dead.
+When that contract breaks, the break does not stay where you put it. It moves.
+THE DIRECTOR: (a warning note) Don't.
+THE FORMER DIRECTOR: It moves to the people closest to you. The people your authority is supposed to protect. The people who cannot insulate themselves from what you've set in motion because they are bound to you by something older than the institution.
+Your son. Your wife.
+THE DIRECTOR is on his feet.
+THE DIRECTOR: That's enough —
+THE FORMER DIRECTOR: (no louder, no faster) I'm not threatening you. I'm telling you that the system you have disturbed is already correcting. The girl in the containment unit, the body at the perimeter — they are already the cause. You are already in the consequence. The only question is how much of it you absorb before you correct.
+THE DIRECTOR: stands rigid. Something is working behind his eyes.
+THE FORMER DIRECTOR: (cont'd) (moving toward the door) I've said what I came to say. Whether the record shows you heard it is your decision.
+(at the door)
+I built this building to last. Correct, or be corrected. Those are the only options left.
+He leaves. THE DIRECTOR stands alone in the half-lit room.
+A long silence.
+THE PRESS SECRETARY appears in the doorway. She has heard enough — possibly all of it. She doesn't pretend otherwise.
+THE DIRECTOR: (not turning) Don't.
+PRESS SECRETARY: (carefully) He's never been wrong. In thirty years, I've never pulled a file where he was wrong.
+THE DIRECTOR turns. He looks older than he did at the start of the scene. Not broken — reduced.
+THE DIRECTOR: If I reverse — if I open the sequestration order and process the remains — what does the record say about everything that came before it?
+PRESS SECRETARY: That you corrected.
+THE DIRECTOR: And the Edict.
+PRESS SECRETARY: That it was issued. That it was reversed. That the institution self-corrected.
+THE DIRECTOR: (to himself, barely audible) It's hard. It's harder than —
+PRESS SECRETARY: Yes.
+THE DIRECTOR moves. Not confidence — the motion of a man who has stopped standing still.
+THE DIRECTOR: Get me the containment facility supervisor. Get me the perimeter recovery team. Get me whoever needs to be gotten.
+(a beat)
+I'm going myself.
+THE PRESS SECRETARY picks up her tablet. Her face does not change. But something behind it does.
+PRESS SECRETARY: (quietly, into the tablet) The Director is en route.
+The light shifts. The notebook on the lectern is still there. No one picks it up.
+Blackout.
+## SCENE SEVEN: THE EXODUS — THE FINAL LAMENT
+### FRENCH SCENE PART ONE: THE FIFTH ODE (The Atrium Between Everything)
+The Atrium. Fully lit — all rigs on. The PRESS POOL has reassembled but is not in briefing formation. Scattered, phones out, feeds running, waiting. The air has the specific quality of a room waiting for something everyone knows is coming.
+The lectern is empty. The PRESS SECRETARY stands to the side, earpiece in, tablet in hand. She is listening to something. Her face reveals nothing. Her stillness reveals everything.
+LEGACY REPORTER 1: (almost to themselves) There's a thing that happens right before. Right before the story closes. The room gets quiet in a way that isn't quiet.
+INDEPENDENT REPORTER 2: (looking at their phone) Field team is at the containment site.
+LEGACY REPORTER 2: How long.
+INDEPENDENT REPORTER 2: They're inside now.
+LEGACY REPORTER 1: (quietly) Fortune lifts people up. Fortune takes them down. Nobody puts that in the filing.
+INDEPENDENT REPORTER 1: We put it in the filing. Every time. And every time someone says: this time will be different.
+LEGACY REPORTER 2: Was it?
+A long silence.
+PRESS SECRETARY: (into the earpiece, very low) Go ahead.
+She looks at the room. She looks at the lectern. She does not go to the lectern.
+She sits down in a chair at the side of the room.
+That is how the Press Pool knows.
+### FRENCH SCENE PART TWO: BREAKING NEWS (The Field Reporter — The Messenger)
+A screen upstage activates — or a speaker crackles, or a phone is placed on the lectern on speaker, amplified. The FIELD REPORTER's voice is professional, slightly breathless, reporting live from somewhere they did not expect to be.
+FIELD REPORTER: (V.O.) — confirming what Bureau sources have described as a secondary incident at the containment facility.
+The room goes still.
+FIELD REPORTER: (V.O., cont'd) The Director arrived at the eastern perimeter approximately forty minutes ago and oversaw a reversal of the remains disposition order. The individual identified as Polyneices was recovered. The Director was present for the recovery.
+LEGACY REPORTER 2: stops writing.
+FIELD REPORTER: (V.O., cont'd) Upon arrival at the containment facility, Bureau personnel encountered — I want to be precise — the Director's son, Haemon, was found inside the sequestration unit. He had gained access through a compromised section of the outer wall. He was found with the subject.
+INDEPENDENT REPORTER 1: looks up from their phone.
+FIELD REPORTER: (V.O., cont'd) The subject had died inside the unit. The manner is consistent with self-administered — she had used the lining of the containment cell.
+No one in the room moves.
+FIELD REPORTER: (V.O., cont'd) Haemon was found with her. When the Director entered, witnesses report that Haemon attacked, and then — he turned the weapon on himself. He died at the scene.
+A long silence. The feed stays active — breathing, static, the ambient sound of an outdoor location.
+FIELD REPORTER: (V.O., cont'd) (quieter) The Director is currently en route back to the Bureau. That's what we have right now.
+The feed cuts. The room holds the silence.
+Then — a sound from the back. Not a word. A chair.
+EURYDICE stands.
+### FRENCH SCENE PART THREE: THE POLITICAL SPOUSE (Eurydice's Final Broadcast)
+EURYDICE has been in the room the entire time — seated at the back, in the row where spouses and officials sit during formal briefings. She is dressed for the cameras. She is always dressed for the cameras.
+She heard everything.
+She does not cry. She stands and looks — directly, without mediation — at the nearest camera.
+The PRESS POOL turns. Slowly, the way a room of reporters turns when they understand they are no longer watching a story but are inside one.
+The PRESS SECRETARY rises.
+PRESS SECRETARY: (carefully) Ma'am —
+EURYDICE: raises one hand. Small. Absolute. The Press Secretary stops.
+EURYDICE: (to the camera — the way she has been trained to do for twenty years, except the training is gone and what's left is just the woman looking into the lens) I want to make a statement.
+No one stops her.
+EURYDICE: (cont'd) I have been in this institution for twenty-two years. I have given approved remarks at two hundred and forty-seven public functions. I have stood at that lectern and been photographed in the correct colors and attended the correct events. By every available metric, I have been an asset to this office.
+A flash. She doesn't blink.
+EURYDICE: (cont'd) My son is dead. He is dead because this office decided that one man's body was a political resource, and my son loved the woman who refused to accept that, and the institution processed her, and Haemon went in after her.
+She stops. The sentence doesn't complete.
+She breathes.
+EURYDICE: (cont'd) He knew what he was doing when he signed the Edict. He knew what a body in the street means. He knew what sealed containment means. He chose it. He chose the Edict over our son, and I will not —
+(something final)
+I will not give approved remarks about it.
+She looks at the camera one more moment. Then she walks toward the back of the room — a door the cameras don't follow.
+She opens it. She doesn't look back. The door closes.
+INDEPENDENT REPORTER 2: (low) Is she —
+PRESS SECRETARY: (into earpiece, fast) I need someone at the east corridor exit immediately —
+She listens. Something in her face.
+She lowers the earpiece. She sits down again. In the same chair.
+### FRENCH SCENE PART FOUR: THE DIRECTOR'S RETURN (The Final Lament — A Man Drowning in Sound)
+THE DIRECTOR enters.
+He is carrying nothing. The aides who brought him are not with him. The jacket is wrong — one lapel turned — and he does not correct it. He moves like someone whose body has been doing things without him.
+The PRESS POOL moves. Not hostile — mechanical, reflexive. Microphones extend. Cameras train. Handheld lights switch on and aim at his face.
+He stops.
+OVERLAPPING
+LEGACY REPORTER 1: Director — can you confirm the reports from the containment —
+INDEPENDENT REPORTER 2: (over them) Can you speak to the status of the Edict following —
+LEGACY REPORTER 2: (over them) What is your response to your wife's statement —
+INDEPENDENT REPORTER 1: (over them) At what point did you decide to reverse the disposition order —
+LEGACY REPORTER 1: (over them) Your son — Director, your son —
+THE DIRECTOR: raises a hand. Not a command — a reflex. A man pushing back water.
+THE DIRECTOR: I — my son —
+Flash. Flash. Flash.
+INDEPENDENT REPORTER 2: Director, the public is asking —
+THE DIRECTOR: (not to them) I went to the perimeter. I recovered — I went myself, I was there —
+(his voice loses its register entirely)
+It was too late. I was too late.
+Flash.
+LEGACY REPORTER 1: Sir, what does this mean for the institution going forward —
+THE DIRECTOR: (not hearing it) He was in there with her. My boy was in there —
+INDEPENDENT REPORTER 1: Director —
+THE DIRECTOR: (suddenly, raw) I built every protocol in this building. I built the Edict. All of it, every procedure — I built it to protect the institution and my son is —
+He stops. The cameras don't stop.
+Flash. Flash.
+THE DIRECTOR: (cont'd) (low — the breaking point: not a collapse, a fracture, the sound of a man who has run out of institutional language and has nothing underneath it) Can you turn them off. Just — can we —
+No one turns them off.
+The PRESS SECRETARY is in her chair at the side of the room. She watches. She does not move toward the lectern. She does not rescue the briefing. She lets the room be what it is.
+THE DIRECTOR: (cont'd) (barely) I made this. I know I made this.
+(looking up at the lights)
+I just — I need — for one minute —
+Flash. Flash. Flash.
+The cameras do not stop. The microphones do not lower.
+THE DIRECTOR stands in the center of the Atrium, surrounded by the apparatus of public record he built and funded and used, and it is pointed at him, and it is not going to stop.
+He looks like a man who finally understands the machine he is standing inside.
+TERRIBLE UNISON. Final. The PRESS SECRETARY does not speak. The cameras keep rolling. The shutters click in the silence between words.
+THE PRESS POOL: (in unison — slowly, like a sentence being filed) The record is open. (pause) The record has always been open. (pause) We watched him build it. (pause) We watched him use it. (pause) We watched it close around him. (a long pause) The record will reflect all of this. (pause) The record will not reflect what it cost.
+The lights do not go off. The cameras do not stop. THE DIRECTOR stands in the middle of it.
+PRESS SECRETARY stands. She moves — slowly, no urgency — to the lectern. Places both hands on it. Looks out at the room. At the cameras. At The Director. At the empty chair where Eurydice sat.
+She opens her mouth.
+She closes it.
+She picks up the forgotten notebook — the one that has been on the lectern since Scene Six — and holds it.
+She does not open it.
+The lights remain on. The shutters click.
+Blackout — but not silence. In the dark, one camera light blinks red.
+Then it too goes out.
+CLOSING NOTE FOR DIRECTORS
+The final image is the decision: does the last camera light go out, or does it stay on?
+If it stays on: the institution survives him. The record outlasts the man who made it. The apparatus does not require his participation to continue.
+If it goes out: something ended here. The machine stops when the architect stops. There is a world after the record.
+Either reading is defensible. Neither is comforting.
+The play does not choose. That choice belongs to the production.
+ 
+
+## Alternate Scene 6
+### FRENCH SCENE PART TWO: THE PRIVATE MEETING (Episode 5 — Cold and Transactional)
+The anteroom — a smaller light, the lectern moved aside, two chairs at angles suggesting a meeting that was not scheduled. THE DIRECTOR enters and stops when he sees who is waiting. The man in the chair has no badge. He has never needed one.
+THE DIRECTOR: (controlled) I wasn't told you'd be here.
+THE INVESTOR: I don't go through your scheduling office. (beat) Sit down.
+The instruction lands without effort. THE DIRECTOR sits — and then appears to understand he has sat when told to. He does not stand back up.
+THE DIRECTOR: If this is about the Edict —
+THE INVESTOR: It's about what the Edict is costing.
+(he doesn't move; men with his kind of money have learned that stillness reads as patience, and patience reads as power)
+Three of the primary infrastructure underwriters have sent me quiet inquiries in the last seventy-two hours. Not official channels. Personal. They used words like "exposure" and "long-term stability indicators." One used the phrase "ideological overreach." These are not dissidents. These are the people who paid for the building you're standing in.
+THE DIRECTOR: What they paid for was the guarantee of order —
+THE INVESTOR: What they paid for was the appearance of order producing returns. There is a difference. The appearance is currently a photograph of a body being used as a fence post, and the returns are currently a question mark.
+(shifting slightly)
+I don't care about the girl. I care that the girl has become the story, and the story is now running ahead of your ability to manage it. That is a structural problem, not a moral one. I'm not here about moral problems.
+THE DIRECTOR: This is a messaging issue. The Press Secretary can —
+THE INVESTOR: She cannot. I've watched her work. She is very good at managing disagreement. She cannot manage the image of a state that is visibly using a corpse as policy. There is a threshold of optic that exceeds messaging capacity, and you have crossed it.
+(leaning forward now, elbows on knees, the first sign of something with heat in it)
+What you purchased with the Edict was a short-term deterrent and a long-term liability. The deterrent is already degrading — your own Constituency Response Metrics will tell you that, if you look at them without the Press Secretary's summary. People are angry, not afraid. Angry people do not produce stable investment environments.
+THE DIRECTOR: (a flash) I will not be told how to administer this office by —
+THE INVESTOR: (no change in temperature) By the person who funded its last three capital expansions? You'll hear it, or I'll make different decisions about the fourth.
+A silence. The Director recalibrates.
+THE DIRECTOR: (lower) I made a lawful determination. The Edict is correctly processed and correctly issued. If I reverse it, the institution signals it will bend under pressure.
+THE INVESTOR: The pressure is not coming from the wrong side. It's coming from people who define which side is wrong. That is a distinction that matters to your operating budget.
+(a beat)
+The error was not making the Edict. I understand the logic of the Edict. The error is refusing to acknowledge the secondary effect, which is now running ahead of you, and which is being measured by people I have dinner with.
+THE DIRECTOR: You're telling me to reverse.
+THE INVESTOR: I'm telling you that a corrected position is not a weakened position. Markets correct. Institutions correct. What they cannot do is collapse and be mistaken for a correction after the fact. Correct before the cost of not correcting exceeds the cost of correction. That is not political advice. That is arithmetic.
+THE DIRECTOR: (reaching for footing) You've been outside the Bureau's operational structure for over a year. Your information is —
+THE INVESTOR: My information is the kind that doesn't require a security clearance. It requires a phone. I have made more calls in the last seventy-two hours than your entire intelligence division, and the calls I make get answered on the first ring.
+(a pause — something sharpens)
+I have a twenty-three-year financial position in the stability of this institution. The perimeter infrastructure. The Auxiliary Force equipment. The broadcast contracts for the briefing systems your Press Pool uses every morning. I am not a donor. I am a creditor. And creditors do not counsel — they call the note.
+A silence that has weight.
+THE DIRECTOR: (quiet, dangerous) I'll take the counsel under advisement.
+THE INVESTOR: You'll do more than that.
+THE DIRECTOR stops. The transactional quality is gone from THE INVESTOR's voice. What's underneath it is not warmer. It is more precise, and therefore more frightening — it is the sound of a man who did not come here to negotiate and has just decided to stop pretending he did.
+### FRENCH SCENE PART THREE: THE PROPHECY OF LOSS
+THE INVESTOR: (without transition) I built my first position in this region thirty years ago because someone told me stability was the only commodity that never depreciates. I believed them. I structured accordingly.
+(a beat)
+What I did not account for — what no model accounts for — is the cost of what happens when an institution violates something older than itself. Not a law. Not a charter. Something that doesn't have a line item.
+THE DIRECTOR: (a warning note) Don't.
+THE INVESTOR: The contract I mean is this: the state protects the living and releases the dead. That is not in your founding documents. It doesn't need to be. It is the operating assumption that makes all the other documents possible. You have a living person in a sealed containment unit for honoring the dead. You have the dead in public view as a state instrument. In doing both simultaneously, you have defaulted on the underlying contract.
+When that kind of default occurs, the damage does not stay where you placed it. It propagates. I have seen it. I have lost money on it before, in other places, and I learned to recognize the moment of propagation.
+THE DIRECTOR: (rigid) This is —
+THE INVESTOR: (continuing, steady) It moves toward the people closest to you. The people your authority is supposed to protect. Not dissidents. Not press. The people who are inside your perimeter, bound to you by something that cannot be restructured. Your son. Your wife.
+THE DIRECTOR: is on his feet.
+THE DIRECTOR: That is enough —
+THE INVESTOR: (no louder, no faster — and this is what makes it terrible) I'm not threatening you. I have no interest in your family. I'm describing a systemic behavior I have observed, at significant financial cost, in four other institutional contexts over thirty years. When the underlying contract breaks, it does not break outward first. It breaks inward. It finds the load-bearing relationships and it tests them.
+(standing now, unhurried)
+You are already in the consequence. The girl in the containment unit, the body at the perimeter — the cause is complete. You are past the point of prevention. You are at the point of mitigation.
+THE DIRECTOR stands rigid. Something is working behind his eyes — not grief yet, but the shape of the space where grief will be.
+THE INVESTOR: (moving toward the door, unhurried) I've said what I came to say.
+(pausing — and here, briefly, something that is neither financial nor strategic, something older)
+I had a son once. He worked for me for eleven years. I made a determination I was certain was correct, and I held it because I believed reversing it would signal weakness.
+(a beat)
+He made different choices after that. I have a very good relationship with his children.
+(the door)
+Correct, or be corrected. That's the only arithmetic left.
+He leaves. THE DIRECTOR stands alone in the half-lit room.
+A long silence.
+

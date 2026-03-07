@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import Teleprompter from './components/Teleprompter';
 import BottomBar from './components/BottomBar';
 import SettingsPanel from './components/SettingsPanel';
+import Studio from './components/Studio';
 
 function App() {
     const [scriptNodes, setScriptNodes] = useState([]);
@@ -21,6 +22,9 @@ function App() {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+    // Simple routing state
+    const [currentView, setCurrentView] = useState('player'); // 'player' or 'studio'
 
     // Load settings from localStorage
     useEffect(() => {
@@ -167,52 +171,72 @@ function App() {
     return (
         <div className="flex h-screen bg-gray-950 text-gray-100 overflow-hidden font-sans">
 
-            {/* Sidebar TOC */}
-            <Sidebar
-                scriptNodes={scriptNodes}
-                onJumpToLine={jumpToLine}
-                isOpen={isSidebarOpen}
-                setIsOpen={setIsSidebarOpen}
-            />
+            {/* Sidebar TOC - Hide if in studio mode */}
+            {currentView === 'player' && (
+                <Sidebar
+                    scriptNodes={scriptNodes}
+                    onJumpToLine={jumpToLine}
+                    isOpen={isSidebarOpen}
+                    setIsOpen={setIsSidebarOpen}
+                />
+            )}
 
             <div className="flex-1 flex flex-col relative w-full h-full">
 
                 {/* Top Header */}
                 <header className="h-16 flex items-center justify-between px-4 lg:px-6 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800 z-10 shrink-0">
                     <div className="flex items-center gap-4">
-                        <button
-                            onClick={() => setIsSidebarOpen(prev => !prev)}
-                            className="p-2 -ml-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
-                        >
-                            <Menu size={24} />
-                        </button>
+                        {currentView === 'player' && (
+                            <button
+                                onClick={() => setIsSidebarOpen(prev => !prev)}
+                                className="p-2 -ml-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                            >
+                                <Menu size={24} />
+                            </button>
+                        )}
                         <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent truncate hidden sm:block">
                             Rehearsal Script Reader
                         </h1>
                     </div>
 
                     <div className="flex items-center gap-2 lg:gap-4">
-                        {cloudScriptUrl && (
-                            <button
-                                onClick={() => fetchCloudScript(cloudScriptUrl, true)}
-                                disabled={isSyncing}
-                                className={`hidden sm:flex items-center gap-2 px-3 py-2 border border-blue-600/50 hover:bg-blue-600/20 text-blue-300 rounded-lg transition-colors shadow-lg text-sm ${isSyncing ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            >
-                                <RefreshCw size={18} className={isSyncing ? "animate-spin" : ""} />
-                                <span>{isSyncing ? "Syncing..." : "Check for Updates"}</span>
-                            </button>
-                        )}
 
-                        <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg cursor-pointer transition-colors shadow-lg font-medium text-sm">
-                            <Upload size={18} />
-                            <span className="hidden sm:inline">Upload Script (.txt)</span>
-                            <input
-                                type="file"
-                                accept=".txt"
-                                className="hidden"
-                                onChange={handleFileUpload}
-                            />
-                        </label>
+                        {/* Navigation Toggle */}
+                        <button
+                            onClick={() => setCurrentView(prev => prev === 'player' ? 'studio' : 'player')}
+                            className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors shadow-lg text-sm font-medium border ${currentView === 'studio'
+                                    ? 'bg-emerald-600/20 text-emerald-400 border-emerald-600/50 hover:bg-emerald-600/30'
+                                    : 'bg-indigo-600/20 text-indigo-400 border-indigo-600/50 hover:bg-indigo-600/30'
+                                }`}
+                        >
+                            {currentView === 'player' ? 'Go to Studio' : 'Back to Player'}
+                        </button>
+                        {/* Only show these if in Player mode */}
+                        {currentView === 'player' && (
+                            <>
+                                {cloudScriptUrl && (
+                                    <button
+                                        onClick={() => fetchCloudScript(cloudScriptUrl, true)}
+                                        disabled={isSyncing}
+                                        className={`hidden sm:flex items-center gap-2 px-3 py-2 border border-blue-600/50 hover:bg-blue-600/20 text-blue-300 rounded-lg transition-colors shadow-lg text-sm ${isSyncing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    >
+                                        <RefreshCw size={18} className={isSyncing ? "animate-spin" : ""} />
+                                        <span>{isSyncing ? "Syncing..." : "Check for Updates"}</span>
+                                    </button>
+                                )}
+
+                                <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg cursor-pointer transition-colors shadow-lg font-medium text-sm">
+                                    <Upload size={18} />
+                                    <span className="hidden sm:inline">Upload Script (.txt)</span>
+                                    <input
+                                        type="file"
+                                        accept=".txt"
+                                        className="hidden"
+                                        onChange={handleFileUpload}
+                                    />
+                                </label>
+                            </>
+                        )}
 
                         <button
                             onClick={() => setIsSettingsOpen(true)}
@@ -224,26 +248,35 @@ function App() {
                     </div>
                 </header>
 
-                {/* Teleprompter Area */}
-                <Teleprompter
-                    scriptNodes={scriptNodes}
-                    currentIndex={currentIndex}
-                    settings={settings}
-                    onJumpToLine={jumpToLine}
-                />
+                {/* Main Content Area */}
+                {currentView === 'player' ? (
+                    <>
+                        {/* Teleprompter Area */}
+                        <Teleprompter
+                            scriptNodes={scriptNodes}
+                            currentIndex={currentIndex}
+                            settings={settings}
+                            onJumpToLine={jumpToLine}
+                        />
 
-                {/* Bottom Bar fixed overlay handled globally */}
-                {scriptNodes.length > 0 && (
-                    <BottomBar
-                        isPlaying={isPlaying}
-                        isPausedManual={isPausedManual}
-                        globalSpeed={globalSpeed}
-                        setGlobalSpeed={setGlobalSpeed}
-                        onResume={resume}
-                        onPause={pause}
-                        onStop={stop}
-                        onNext={nextManual}
-                    />
+                        {/* Bottom Bar fixed overlay handled globally */}
+                        {scriptNodes.length > 0 && (
+                            <BottomBar
+                                isPlaying={isPlaying}
+                                isPausedManual={isPausedManual}
+                                globalSpeed={globalSpeed}
+                                setGlobalSpeed={setGlobalSpeed}
+                                onResume={resume}
+                                onPause={pause}
+                                onStop={stop}
+                                onNext={nextManual}
+                            />
+                        )}
+                    </>
+                ) : (
+                    <div className="flex-1 w-full h-full overflow-hidden">
+                        <Studio />
+                    </div>
                 )}
             </div>
 
