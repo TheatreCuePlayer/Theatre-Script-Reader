@@ -77,21 +77,9 @@ export function parseScript(text) {
                     }
                 }
             } else {
-                // Fallback or continued dialogue
-                const lastNode = scriptNodes[scriptNodes.length - 1];
-                if (lastNode && lastNode.type === 'DIALOGUE') {
-                    const parts = rawLine.split(/(\[[^\]]+\])/g);
-                    for (const part of parts) {
-                        if (!part) continue;
-                        if (part.startsWith('[') && part.endsWith(']')) {
-                            pushNode('DIRECTION', 'STAGE DIRECTIONS', part);
-                        } else {
-                            pushNode('DIALOGUE', lastNode.character, part);
-                        }
-                    }
-                } else {
-                    pushNode('DIRECTION', 'STAGE DIRECTIONS', rawLine);
-                }
+                // If a line does not contain a colon immediately following the capitalized starting words,
+                // it MUST be assigned to the universal "Stage Directions" role.
+                pushNode('DIRECTION', 'STAGE DIRECTIONS', rawLine);
             }
         }
         currentLineId++; // Group inline nodes together manually via this ID
