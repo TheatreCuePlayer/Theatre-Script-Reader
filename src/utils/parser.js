@@ -51,8 +51,8 @@ export function parseScript(text) {
         else if (rawLine.startsWith('#')) {
             pushNode('ACT', null, rawLine.replace(/^#\s*/, ''));
         }
-        // Text enclosed entirely in brackets [like this]
-        else if (/^\[.*\]$/.test(rawLine)) {
+        // Text enclosed entirely in brackets [like this] or parentheses (like this)
+        else if (/^\[.*\]$/.test(rawLine) || /^\(.*\)$/.test(rawLine)) {
             pushNode('DIRECTION', 'STAGE DIRECTIONS', rawLine);
         }
         // Words in ALL CAPS followed by a colon JOHN: = DIALOGUE
@@ -65,11 +65,11 @@ export function parseScript(text) {
                 if (character === 'BLACKOUT' || character === 'THE END') {
                     pushNode('DIRECTION', 'STAGE DIRECTIONS', rawLine);
                 } else {
-                    // Split by inline directions: [waves]
-                    const parts = remainingText.split(/(\[[^\]]+\])/g);
+                    // Split by inline directions: [waves] or (waves)
+                    const parts = remainingText.split(/(\[[^\]]+\]|\([^)]+\))/g);
                     for (const part of parts) {
                         if (!part) continue;
-                        if (part.startsWith('[') && part.endsWith(']')) {
+                        if ((part.startsWith('[') && part.endsWith(']')) || (part.startsWith('(') && part.endsWith(')'))) {
                             pushNode('DIRECTION', 'STAGE DIRECTIONS', part);
                         } else {
                             pushNode('DIALOGUE', character, part);
