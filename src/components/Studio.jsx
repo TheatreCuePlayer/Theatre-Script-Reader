@@ -339,7 +339,15 @@ function Studio() {
 
                 {/* Voice Map List */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                    <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">Voice Configuration</h3>
+                    <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Voice Configuration</h3>
+                        {Object.keys(voiceConfig).length > 0 && (
+                            <div className="flex items-center gap-2 text-[10px] text-gray-500 uppercase font-bold tracking-wider mr-1 px-1 w-32 justify-end">
+                                <span className="w-16 text-center">Speed</span>
+                                <span className="w-16 text-center">Pitch</span>
+                            </div>
+                        )}
+                    </div>
                     {Object.keys(voiceConfig).length === 0 ? (
                         <p className="text-sm text-gray-600 italic">Upload a script to identify roles.</p>
                     ) : (

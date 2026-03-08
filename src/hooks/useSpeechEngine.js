@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, apiKeys, globalSpeed, onPlayNext) {
+export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, apiKeys, globalSpeed, playbackMode, localAudioFiles, remoteBaseUrl, onPlayNext) {
     const [localVoices, setLocalVoices] = useState([]);
     const [elevenLabsVoices, setElevenLabsVoices] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -229,6 +229,58 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
         });
     };
 
+    const processPreRenderedSpeech = (node, speed, volume) => {
+        return new Promise((resolve) => {
+            _stopAllAudio();
+            const processId = activeProcessIdRef.current;
+
+            if (volume === 0 || !node.audioUrl) {
+                const fallbackText = node.originalText || node.text || '';
+                const baseDurationMs = Math.max(1000, (fallbackText.split(' ').length / 2.5) * 1000);
+                setTimeout(() => { if (processId === activeProcessIdRef.current) resolve(); }, baseDurationMs * (1 / speed));
+                return;
+            }
+
+            try {
+                let audioUrl = null;
+                let isObjectUrl = false;
+
+                if (playbackMode === 'pre_rendered_local') {
+                    const filename = node.audioUrl.split('/').pop();
+                    const fileObj = localAudioFiles[filename];
+
+                    if (fileObj) {
+                        audioUrl = URL.createObjectURL(fileObj);
+                        isObjectUrl = true;
+                    } else {
+                        return resolve(); // skip instantly if file missing
+                    }
+                } else if (playbackMode === 'pre_rendered_remote') {
+                    const cleanRemote = remoteBaseUrl.replace(/\/$/, "");
+                    audioUrl = `${cleanRemote}/${node.audioUrl}`;
+                }
+
+                if (!audioUrl) return resolve();
+
+                const audio = new Audio(audioUrl);
+                audio.playbackRate = speed;
+                audio.volume = volume;
+
+                audio.onended = () => { if (isObjectUrl) URL.revokeObjectURL(audioUrl); resolve(); };
+                audio.onerror = () => { if (isObjectUrl) URL.revokeObjectURL(audioUrl); resolve(); };
+
+                currentAudioRef.current = audio;
+
+                audio.play().catch((e) => {
+                    resolve();
+                });
+
+            } catch (error) {
+                resolve();
+            }
+        });
+    };
+
     const playPreview = (voiceURI, speed = 1.0, pitch = 1.0) => {
         const text = "Testing voice playback.";
         const resolvedSpeed = speed === 1.0 ? globalSpeed : speed;
@@ -295,13 +347,17 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
         const pitch = roleSetting.pitch !== undefined ? roleSetting.pitch : 1.0;
         const volume = (roleSetting.mode === 'Muted (Timer)' || roleSetting.mode === 'Transparent (Timed)') ? 0 : 1;
 
-        await processSpeech(textToSpeak, roleSetting.voiceURI, speed, pitch, volume);
+        if (playbackMode === 'pre_rendered_local' || playbackMode === 'pre_rendered_remote') {
+            await processPreRenderedSpeech(node, speed, volume);
+        } else {
+            await processSpeech(textToSpeak, roleSetting.voiceURI, speed, pitch, volume);
+        }
 
         if (isPlayingRef.current) {
             speakLine(currentIndexRef.current + 1);
         }
 
-    }, [scriptNodes, settings, globalSpeed, onPlayNext, pronunciationDictionary, allVoices, apiKeys]);
+    }, [scriptNodes, settings, globalSpeed, onPlayNext, pronunciationDictionary, allVoices, apiKeys, playbackMode, localAudioFiles, remoteBaseUrl]);
 
     const resume = useCallback(() => {
         if (!isPlaying && scriptNodes.length > 0) {
@@ -326,7 +382,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
     }, [currentIndex, speakLine]);
 
     return {
-        voices: allVoices,
+        voices,
         isPlaying,
         currentIndex,
         isPausedManual,

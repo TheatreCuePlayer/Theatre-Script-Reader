@@ -20,6 +20,12 @@ function App() {
     const [lastOpenedScript, setLastOpenedScript] = useState('');
     const [isSyncing, setIsSyncing] = useState(false);
 
+    // New Audio Engine State
+    const [playbackMode, setPlaybackMode] = useState('live'); // 'live', 'pre_rendered_local', 'pre_rendered_remote'
+    const [localAudioFiles, setLocalAudioFiles] = useState({});
+    const [remoteBaseUrl, setRemoteBaseUrl] = useState('');
+    const [isLoadError, setIsLoadError] = useState('');
+
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -99,7 +105,78 @@ function App() {
         });
 
         setRoles(Array.from(uniqueRoles).sort());
+        setPlaybackMode('live');
         setIsSidebarOpen(true);
+    };
+
+    const applyScriptJson = (jsonArray) => {
+        const uniqueRoles = new Set();
+        jsonArray.forEach(node => {
+            if (node.character) uniqueRoles.add(node.character);
+        });
+        stop();
+        setScriptNodes([]);
+        setRoles([]);
+        setPronunciationDictionary({}); // Pre-rendered handles pronunciation natively
+
+        setScriptNodes(jsonArray);
+        setRoles(Array.from(uniqueRoles).sort());
+        setIsLoadError('');
+        setIsSidebarOpen(true);
+    };
+
+    const handleFolderSelection = (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+
+        let scriptJsonFile = null;
+        const audioMap = {};
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            if (file.name === 'script.json') {
+                scriptJsonFile = file;
+            } else if (file.name.endsWith('.mp3')) {
+                audioMap[file.name] = file;
+            }
+        }
+
+        if (!scriptJsonFile) {
+            alert('Could not find script.json in the selected directory.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const jsonArray = JSON.parse(event.target.result);
+                setLocalAudioFiles(audioMap);
+                setPlaybackMode('pre_rendered_local');
+                applyScriptJson(jsonArray);
+            } catch (error) {
+                alert("Failed to parse script.json - invalid format.");
+            }
+        };
+        reader.readAsText(scriptJsonFile);
+        e.target.value = '';
+    };
+
+    const handleLoadRemoteUrl = async (urlStr) => {
+        if (!urlStr) return;
+        setIsLoadError('Loading...');
+        try {
+            const cleanBaseUrl = urlStr.replace(/\/$/, "");
+            const response = await fetch(`${cleanBaseUrl}/script.json`);
+            if (!response.ok) throw new Error('Not found');
+            const jsonArray = await response.json();
+
+            setRemoteBaseUrl(cleanBaseUrl);
+            setPlaybackMode('pre_rendered_remote');
+            applyScriptJson(jsonArray);
+        } catch (error) {
+            setIsLoadError('Failed to load remote script.json');
+            alert("Failed to load generic script.json. Ensure the URL points to a hosted Studio bundle.");
+        }
     };
 
     const fetchCloudScript = async (url, isAutoCheck = false) => {
@@ -163,9 +240,8 @@ function App() {
         stop,
         jumpToLine,
         nextManual
-    } = useSpeechEngine(scriptNodes, pronunciationDictionary, settings, apiKeys, globalSpeed, () => {
-        // Optional callback when a line starts if state managed outside, 
-        // but the hook exports currentIndex directly.
+    } = useSpeechEngine(scriptNodes, pronunciationDictionary, settings, apiKeys, globalSpeed, playbackMode, localAudioFiles, remoteBaseUrl, () => {
+        // Optional callback 
     });
 
     return (
@@ -205,15 +281,46 @@ function App() {
                         <button
                             onClick={() => setCurrentView(prev => prev === 'player' ? 'studio' : 'player')}
                             className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors shadow-lg text-sm font-medium border ${currentView === 'studio'
-                                    ? 'bg-emerald-600/20 text-emerald-400 border-emerald-600/50 hover:bg-emerald-600/30'
-                                    : 'bg-indigo-600/20 text-indigo-400 border-indigo-600/50 hover:bg-indigo-600/30'
+                                ? 'bg-emerald-600/20 text-emerald-400 border-emerald-600/50 hover:bg-emerald-600/30'
+                                : 'bg-indigo-600/20 text-indigo-400 border-indigo-600/50 hover:bg-indigo-600/30'
                                 }`}
                         >
                             {currentView === 'player' ? 'Go to Studio' : 'Back to Player'}
                         </button>
                         {/* Only show these if in Player mode */}
                         {currentView === 'player' && (
-                            <>
+                            <div className="flex items-center gap-2">
+                                <div className="hidden lg:flex items-center bg-gray-950 border border-gray-700 rounded-lg overflow-hidden shadow-lg h-9">
+                                    <input
+                                        type="text"
+                                        placeholder="https://...remote url zip path"
+                                        className="bg-transparent text-sm px-3 py-1 text-gray-300 outline-none w-48 focus:w-64 transition-all"
+                                        value={remoteBaseUrl}
+                                        onChange={(e) => setRemoteBaseUrl(e.target.value)}
+                                        onKeyDown={(e) => e.key === 'Enter' && handleLoadRemoteUrl(remoteBaseUrl)}
+                                    />
+                                    <button
+                                        onClick={() => handleLoadRemoteUrl(remoteBaseUrl)}
+                                        className="h-full px-3 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-blue-300 transition-colors border-l border-gray-700 font-medium text-xs whitespace-nowrap"
+                                    >
+                                        Load URL
+                                    </button>
+                                </div>
+                                {isLoadError === 'Loading...' && <span className="text-xs text-blue-400 animate-pulse ml-2">Loading...</span>}
+
+                                <label className="flex items-center gap-2 px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg cursor-pointer transition-colors shadow-lg font-medium text-sm">
+                                    <Upload size={18} />
+                                    <span className="hidden sm:inline">Load MP3 Folder</span>
+                                    <input
+                                        type="file"
+                                        webkitdirectory="true"
+                                        directory="true"
+                                        multiple
+                                        className="hidden"
+                                        onChange={handleFolderSelection}
+                                    />
+                                </label>
+
                                 {cloudScriptUrl && (
                                     <button
                                         onClick={() => fetchCloudScript(cloudScriptUrl, true)}
@@ -235,7 +342,7 @@ function App() {
                                         onChange={handleFileUpload}
                                     />
                                 </label>
-                            </>
+                            </div>
                         )}
 
                         <button
