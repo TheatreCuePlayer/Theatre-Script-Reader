@@ -24,7 +24,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
         { id: 'google_en-US-Neural2-J', name: '[Google] Neural2 Male J', lang: 'en-US', type: 'google', voice_id: 'en-US-Neural2-J' }
     ] : [];
 
-    const allVoices = [...localVoices, ...googleVoices, ...elevenLabsVoices];
+    const voices = [...localVoices, ...googleVoices, ...elevenLabsVoices];
 
     // Sync refs
     useEffect(() => {
@@ -156,7 +156,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
                 return resolve();
             }
 
-            const selectedVoice = allVoices.find(v => v.id === voiceURI);
+            const selectedVoice = voices.find(v => v.id === voiceURI);
             const voiceType = selectedVoice?.type || 'local';
 
             // Muted behavior
@@ -357,7 +357,7 @@ export function useSpeechEngine(scriptNodes, pronunciationDictionary, settings, 
             speakLine(currentIndexRef.current + 1);
         }
 
-    }, [scriptNodes, settings, globalSpeed, onPlayNext, pronunciationDictionary, allVoices, apiKeys, playbackMode, localAudioFiles, remoteBaseUrl]);
+    }, [scriptNodes, settings, globalSpeed, onPlayNext, pronunciationDictionary, voices, apiKeys, playbackMode, localAudioFiles, remoteBaseUrl]);
 
     const resume = useCallback(() => {
         if (!isPlaying && scriptNodes.length > 0) {
