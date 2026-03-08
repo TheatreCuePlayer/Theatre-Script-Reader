@@ -161,7 +161,7 @@ function Studio() {
 
             const initialConfig = {};
             Array.from(uniqueChars).sort().forEach(char => {
-                initialConfig[char] = { voice: "Skip/Mute", speed: 1.0 };
+                initialConfig[char] = { voice: "Skip/Mute", speed: 1.0, pitch: 0.0 };
             });
             setVoiceConfig(initialConfig);
         };
@@ -196,7 +196,7 @@ function Studio() {
             const payload = {
                 input: { text },
                 voice: { languageCode: 'en-US', name: config.voice },
-                audioConfig: { audioEncoding: 'MP3', speakingRate: config.speed }
+                audioConfig: { audioEncoding: 'MP3', speakingRate: config.speed, pitch: config.pitch || 0.0 }
             };
 
             const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`, {
@@ -270,7 +270,7 @@ function Studio() {
                 const payload = {
                     input: { text: speakableText },
                     voice: { languageCode: 'en-US', name: config.voice },
-                    audioConfig: { audioEncoding: 'MP3', speakingRate: config.speed }
+                    audioConfig: { audioEncoding: 'MP3', speakingRate: config.speed, pitch: config.pitch || 0.0 }
                 };
 
                 const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`, {
@@ -373,6 +373,16 @@ function Studio() {
                                         onChange={(e) => updateConfig(character, 'speed', parseFloat(e.target.value))}
                                         title="Speed"
                                     />
+                                    <input
+                                        type="number"
+                                        step="0.5"
+                                        min="-10.0"
+                                        max="10.0"
+                                        className="w-16 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
+                                        value={config.pitch !== undefined ? config.pitch : 0.0}
+                                        onChange={(e) => updateConfig(character, 'pitch', parseFloat(e.target.value) || 0.0)}
+                                        title="Pitch"
+                                    />
                                 </div>
                             </div>
                         ))
@@ -470,14 +480,14 @@ function Studio() {
                                     </div>
                                     <div className="flex-1">
                                         <div className={`font-bold text-xs uppercase tracking-wider mb-1 ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
-                                                ? 'text-gray-500'
-                                                : 'text-blue-400'
+                                            ? 'text-gray-500'
+                                            : 'text-blue-400'
                                             }`}>
                                             {node.character}
                                         </div>
                                         <div className={`text-base leading-relaxed ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
-                                                ? 'text-gray-400 italic'
-                                                : 'text-gray-200'
+                                            ? 'text-gray-400 italic'
+                                            : 'text-gray-200'
                                             }`}>
                                             {node.originalText}
                                         </div>
