@@ -124,7 +124,7 @@ function Studio() {
                                 (trimmedPart.startsWith('(') && trimmedPart.endsWith(')'))) {
                                 parsedNodes.push({
                                     id: `line_${String(currentLineNumber++).padStart(4, '0')}`,
-                                    character: "STAGE DIRECTIONS",
+                                    character: "INLINE STAGE DIRECTIONS",
                                     originalText: trimmedPart,
                                     audioUrl: null
                                 });
@@ -156,7 +156,7 @@ function Studio() {
             // Seed unique characters in voiceConfig
             const uniqueChars = new Set();
             parsedNodes.forEach(n => {
-                if (n.character && n.character !== "STAGE DIRECTIONS") uniqueChars.add(n.character);
+                if (n.character) uniqueChars.add(n.character);
             });
 
             const initialConfig = {};
@@ -236,7 +236,7 @@ function Studio() {
             const sliceEnd = Math.min(masterScript.length, endLine);
             const scriptSlice = masterScript.slice(sliceStart, sliceEnd);
 
-            // We'll write the *entire* parsed array to the JSON file, 
+            // We'll write the *entire* parsed array to the JSON file,
             // but we only *generate* MP3s for the requested slice.
             const fullJsonManifest = [...masterScript];
 
@@ -250,7 +250,7 @@ function Studio() {
                 count++;
                 setGenerationProgress(Math.floor((count / totalToProcess) * 100));
 
-                if (node.character === "STAGE DIRECTIONS" || !config || config.voice === "Skip/Mute") {
+                if (!config || config.voice === "Skip/Mute") {
                     continue; // Skip generation
                 }
 
@@ -419,8 +419,8 @@ function Studio() {
                         onClick={generateAudioZip}
                         disabled={isGenerating || masterScript.length === 0}
                         className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold transition-all shadow-lg ${isGenerating || masterScript.length === 0
-                                ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700'
-                                : 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                            ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700'
+                            : 'bg-emerald-600 hover:bg-emerald-500 text-white'
                             }`}
                     >
                         {isGenerating ? (
@@ -461,19 +461,23 @@ function Studio() {
                                 <div
                                     key={node.id}
                                     className={`p-3 rounded transition-colors group flex gap-4 ${isIgnored
-                                            ? 'opacity-30 bg-gray-900/20'
-                                            : 'bg-gray-900/50 hover:bg-gray-800'
+                                        ? 'opacity-30 bg-gray-900/20'
+                                        : 'bg-gray-900/50 hover:bg-gray-800'
                                         }`}
                                 >
                                     <div className="text-xs font-mono text-gray-600 pt-1 shrink-0 w-8 text-right">
                                         [{currentLineNum}]
                                     </div>
                                     <div className="flex-1">
-                                        <div className={`font-bold text-xs uppercase tracking-wider mb-1 ${node.character === "STAGE DIRECTIONS" ? 'text-gray-500' : 'text-blue-400'
+                                        <div className={`font-bold text-xs uppercase tracking-wider mb-1 ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
+                                                ? 'text-gray-500'
+                                                : 'text-blue-400'
                                             }`}>
                                             {node.character}
                                         </div>
-                                        <div className={`text-base leading-relaxed ${node.character === "STAGE DIRECTIONS" ? 'text-gray-400 italic' : 'text-gray-200'
+                                        <div className={`text-base leading-relaxed ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
+                                                ? 'text-gray-400 italic'
+                                                : 'text-gray-200'
                                             }`}>
                                             {node.originalText}
                                         </div>
