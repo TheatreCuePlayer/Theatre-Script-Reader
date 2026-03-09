@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Upload, Settings as SettingsIcon, Menu, RefreshCw, HelpCircle } from 'lucide-react';
+import { Upload, Settings as SettingsIcon, Menu, RefreshCw, HelpCircle, DownloadCloud, X } from 'lucide-react';
 import { parseScript } from './utils/parser';
 import { useSpeechEngine } from './hooks/useSpeechEngine';
 
@@ -33,6 +33,55 @@ function App() {
 
     // Simple routing state
     const [currentView, setCurrentView] = useState('player'); // 'player' or 'studio'
+
+    // PWA Install Prompt State
+    const [deferredPrompt, setDeferredPrompt] = useState(null);
+    const [showInstallToaster, setShowInstallToaster] = useState(false);
+
+    // PWA Install Event Listener
+    useEffect(() => {
+        const handleBeforeInstallPrompt = (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            setDeferredPrompt(e);
+
+            // Check if user has previously dismissed
+            const hasDismissed = localStorage.getItem('rehearsal-install-dismissed');
+            if (!hasDismissed) {
+                setShowInstallToaster(true);
+            }
+        };
+
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+        return () => {
+            window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        };
+    }, []);
+
+    const handleInstallClick = async () => {
+        if (!deferredPrompt) return;
+
+        // Show the install prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+
+        // We no longer need the prompt. Clear it up.
+        setDeferredPrompt(null);
+        setShowInstallToaster(false);
+        // Optionally save decision
+        if (outcome === 'accepted') {
+            localStorage.setItem('rehearsal-install-dismissed', 'true');
+        }
+    };
+
+    const handleDismissInstall = () => {
+        setShowInstallToaster(false);
+        localStorage.setItem('rehearsal-install-dismissed', 'true'); // Only ask once
+    };
 
     // Load settings from localStorage
     useEffect(() => {
@@ -413,6 +462,8 @@ function App() {
                     voices={voices}
                     playbackMode={playbackMode}
                     cloudScriptUrl={cloudScriptUrl}
+                    deferredPrompt={deferredPrompt}
+                    onInstallApp={handleInstallClick}
                     onSettingChange={handleSettingChange}
                     onApiKeyChange={handleApiKeyChange}
                     onCloudScriptUrlChange={handleCloudScriptUrlChange}
@@ -427,6 +478,46 @@ function App() {
                 isOpen={isHelpOpen}
                 onClose={() => setIsHelpOpen(false)}
             />
+
+            {/* PWA Install Toaster */}
+            {showInstallToaster && (
+                <div className="fixed bottom-24 right-4 md:bottom-28 md:right-8 z-50 animate-in slide-in-from-right-8 fade-in duration-500">
+                    <div className="bg-blue-900 shadow-2xl rounded-xl p-4 border border-blue-700 max-w-sm flex flex-col gap-3 relative">
+                        <button
+                            onClick={handleDismissInstall}
+                            className="absolute top-2 right-2 p-1 text-blue-400 hover:text-blue-200 transition-colors"
+                            title="Dismiss"
+                        >
+                            <X size={16} />
+                        </button>
+                        <div className="flex items-start gap-3 pr-4">
+                            <div className="bg-blue-800 p-2 rounded-lg shrink-0">
+                                <DownloadCloud size={24} className="text-blue-300" />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold leading-tight mb-1">Install App</h4>
+                                <p className="text-blue-200 text-sm leading-snug">
+                                    Install Script Reader to your device for offline support and full-screen reading.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex gap-2 justify-end mt-1">
+                            <button
+                                onClick={handleDismissInstall}
+                                className="px-4 py-1.5 text-sm font-medium text-blue-300 hover:text-white transition-colors"
+                            >
+                                Later
+                            </button>
+                            <button
+                                onClick={handleInstallClick}
+                                className="px-4 py-1.5 bg-blue-500 hover:bg-blue-400 text-white text-sm font-bold rounded-md shadow-md transition-colors"
+                            >
+                                Install Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Play, HelpCircle, X } from 'lucide-react';
+import { Play, HelpCircle, X, DownloadCloud } from 'lucide-react';
 
-export default function SettingsPanel({ roles, settings, apiKeys, voices, playbackMode, cloudScriptUrl, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
+export default function SettingsPanel({ roles, settings, apiKeys, voices, playbackMode, cloudScriptUrl, deferredPrompt, onInstallApp, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
     const [showHelp, setShowHelp] = useState(false);
     const modes = ['Active', 'Muted (Timer)', 'Muted (Manual)', 'Transparent (Timed)', 'Transparent (Manual)', 'Hidden'];
 
@@ -58,6 +58,27 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, playba
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                    )}
+
+                    {/* App Installation Section */}
+                    {deferredPrompt && (
+                        <div className="bg-blue-900/40 p-4 rounded-lg border border-blue-800/60 mb-6 drop-shadow-md flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="bg-blue-800 p-2 rounded-lg shrink-0 hidden sm:block">
+                                    <DownloadCloud size={20} className="text-blue-300" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-white leading-tight">Install Script Reader</h3>
+                                    <p className="text-sm text-blue-200 mt-1">Add this app to your device for offline access and full-screen reading.</p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={onInstallApp}
+                                className="px-5 py-2.5 bg-blue-500 hover:bg-blue-400 text-white rounded-md font-bold text-sm transition-colors shadow-lg shrink-0 whitespace-nowrap"
+                            >
+                                Install App
+                            </button>
                         </div>
                     )}
 
