@@ -69,6 +69,31 @@ function Studio() {
 
         reader.onload = (event) => {
             const text = event.target.result;
+
+            if (file.name.endsWith('.json')) {
+                try {
+                    const parsedNodes = JSON.parse(text);
+                    setMasterScript(parsedNodes);
+                    setEndLine(parsedNodes.length);
+
+                    const uniqueChars = new Set();
+                    parsedNodes.forEach(n => {
+                        if (n.character) uniqueChars.add(n.character);
+                    });
+
+                    const initialConfig = {};
+                    Array.from(uniqueChars).sort().forEach(char => {
+                        initialConfig[char] = { voice: "Skip/Mute", speed: 1.0, pitch: 0.0 };
+                    });
+                    setVoiceConfig(initialConfig);
+                } catch (error) {
+                    alert("Invalid JSON script bundle.");
+                }
+                // Reset file input
+                e.target.parentNode.querySelector('input').value = '';
+                return;
+            }
+
             const lines = text.split('\n');
             const parsedNodes = [];
             const dict = {};
@@ -238,7 +263,8 @@ function Studio() {
 
             // We'll write the *entire* parsed array to the JSON file,
             // but we only *generate* MP3s for the requested slice.
-            const fullJsonManifest = [...masterScript];
+            // MUST deep clone so we preserve existing audioUrls from loaded JSONs!
+            const fullJsonManifest = JSON.parse(JSON.stringify(masterScript));
 
             let count = 0;
             const totalToProcess = scriptSlice.length;
@@ -330,8 +356,8 @@ function Studio() {
                     <div className="space-y-4">
                         <label className="flex items-center justify-center gap-2 p-3 bg-blue-600/20 border border-blue-500/30 hover:bg-blue-600/30 text-blue-300 rounded-lg cursor-pointer transition-colors shadow-lg font-medium text-sm text-center w-full">
                             <Upload size={18} />
-                            <span>Load Raw Script (.txt)</span>
-                            <input type="file" accept=".txt" className="hidden" onChange={handleFileUpload} />
+                            <span>Load Script (.txt or .json)</span>
+                            <input type="file" accept=".txt,.json" className="hidden" onChange={handleFileUpload} />
                         </label>
                         <p className="text-xs text-gray-500 text-center font-mono truncate px-2">{fileName}</p>
                     </div>
