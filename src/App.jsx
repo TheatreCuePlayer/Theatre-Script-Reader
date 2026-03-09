@@ -111,15 +111,21 @@ function App() {
 
     const applyScriptJson = (jsonArray) => {
         const uniqueRoles = new Set();
-        jsonArray.forEach(node => {
+        const normalizedArray = jsonArray.map((node, i) => {
             if (node.character) uniqueRoles.add(node.character);
+            return {
+                ...node,
+                text: node.text || node.originalText,
+                lineId: node.lineId || i // Ensure lineId exists
+            };
         });
+
         stop();
         setScriptNodes([]);
         setRoles([]);
         setPronunciationDictionary({}); // Pre-rendered handles pronunciation natively
 
-        setScriptNodes(jsonArray);
+        setScriptNodes(normalizedArray);
         setRoles(Array.from(uniqueRoles).sort());
         setIsLoadError('');
         setIsSidebarOpen(true);
