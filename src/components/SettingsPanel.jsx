@@ -1,8 +1,8 @@
-import React from 'react';
-import { Play } from 'lucide-react';
+import React, { useState } from 'react';
+import { Play, HelpCircle, X } from 'lucide-react';
 
 export default function SettingsPanel({ roles, settings, apiKeys, voices, playbackMode, cloudScriptUrl, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
-
+    const [showHelp, setShowHelp] = useState(false);
     const modes = ['Active', 'Muted (Timer)', 'Muted (Manual)', 'Transparent (Timed)', 'Transparent (Manual)', 'Hidden'];
 
     return (
@@ -11,13 +11,56 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, playba
             <div className="bg-gray-800 rounded-xl w-full max-w-5xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-gray-700">
 
                 <div className="p-4 md:p-6 border-b border-gray-700 flex justify-between items-center bg-gray-900 shrink-0">
-                    <h2 className="text-xl md:text-2xl font-bold text-white">Voice & Character Settings</h2>
+                    <div className="flex items-center gap-3">
+                        <h2 className="text-xl md:text-2xl font-bold text-white">Voice & Character Settings</h2>
+                        <button
+                            onClick={() => setShowHelp(!showHelp)}
+                            className={`p-1.5 rounded-full transition-colors ${showHelp ? 'bg-blue-600/20 text-blue-400' : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}
+                            title="Help Guide"
+                        >
+                            <HelpCircle size={20} />
+                        </button>
+                    </div>
                     <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
                         Close
                     </button>
                 </div>
 
                 <div className="p-4 md:p-6 overflow-y-auto flex-1 space-y-4">
+                    {/* Help Toaster */}
+                    {showHelp && (
+                        <div className="bg-blue-950/40 border border-blue-900/60 rounded-lg p-5 mb-6 relative animate-in fade-in slide-in-from-top-4 duration-300">
+                            <button
+                                onClick={() => setShowHelp(false)}
+                                className="absolute top-4 right-4 text-blue-400/50 hover:text-blue-300 transition-colors"
+                            >
+                                <X size={16} />
+                            </button>
+                            <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2">
+                                <HelpCircle size={18} /> Settings Quick Guide
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-6 text-sm text-blue-100/80">
+                                <div>
+                                    <h4 className="font-semibold text-blue-200 mb-1 border-b border-blue-900/50 pb-1">1. Voice Selection</h4>
+                                    <ul className="space-y-1.5 mt-2 list-disc list-inside">
+                                        <li><strong className="text-emerald-400 font-normal">Pre-Rendered Audio:</strong> High quality MP3s generated from the Studio. Use this by default if you loaded a `.zip` bundle.</li>
+                                        <li><strong className="text-blue-300 font-normal">System Voices:</strong> Free voices built into your specific browser and OS. Lower quality.</li>
+                                        <li><strong className="text-purple-300 font-normal">API Required Voices:</strong> You can select premium neural voices via Google or ElevenLabs in the Studio only.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold text-blue-200 mb-1 border-b border-blue-900/50 pb-1">2. Character Modes</h4>
+                                    <ul className="space-y-1.5 mt-2 list-disc list-inside">
+                                        <li><strong className="text-gray-200 font-normal">Active:</strong> Line is visible and audio plays normally.</li>
+                                        <li><strong className="text-rose-300 font-normal">Muted:</strong> Audio is muted. <em>(Timer)</em> auto-scrolls at reading speed. <em>(Manual)</em> waits for you to click next.</li>
+                                        <li><strong className="text-blue-300 font-normal">Transparent:</strong> Acts exactly like Muted, but blurs the text so you can't read your cue!</li>
+                                        <li><strong className="text-gray-500 font-normal">Hidden:</strong> The lines are completely skipped and removed from the teleprompter entirely.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Cloud Sync Section */}
                     <div className="bg-gray-800/80 p-4 rounded-lg border border-gray-700 mb-6 drop-shadow-md">
                         <h3 className="text-lg font-bold text-white mb-4">Cloud Sync</h3>
@@ -96,8 +139,8 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, playba
                                         ) : (
                                             <select
                                                 className={`w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none ${(playbackMode && playbackMode.startsWith('pre_rendered') && (!currentSetting.voiceURI || currentSetting.voiceURI === 'pre_rendered'))
-                                                        ? 'text-emerald-400 font-bold'
-                                                        : 'text-gray-200'
+                                                    ? 'text-emerald-400 font-bold'
+                                                    : 'text-gray-200'
                                                     }`}
                                                 value={currentSetting.voiceURI || (playbackMode && playbackMode.startsWith('pre_rendered') ? 'pre_rendered' : '')}
                                                 onChange={(e) => onSettingChange(role, { ...currentSetting, voiceURI: e.target.value })}
