@@ -5,8 +5,10 @@ export default function Sidebar({ scriptNodes, onJumpToLine, isOpen, setIsOpen }
 
     // Extract TOC items (Act, Scene, and French Scene)
     const tocItems = scriptNodes.reduce((acc, node, index) => {
-        if (node.type === 'ACT' || node.type === 'SCENE' || node.type === 'FRENCH_SCENE') {
-            acc.push({ ...node, index });
+        const isStructure = node.type === 'ACT' || node.type === 'SCENE' || node.type === 'FRENCH_SCENE' ||
+            node.character === 'ACT' || node.character === 'SCENE' || node.character === 'FRENCH_SCENE';
+        if (isStructure) {
+            acc.push({ ...node, index, derivedType: node.type || node.character });
         }
         return acc;
     }, []);
@@ -29,11 +31,11 @@ export default function Sidebar({ scriptNodes, onJumpToLine, isOpen, setIsOpen }
                                     onJumpToLine(item.index);
                                     if (window.innerWidth < 768) setIsOpen(false); // auto-close on mobile
                                 }}
-                                className={`w-full text-left px-6 py-2 hover:bg-gray-900 transition-colors ${item.type === 'ACT'
-                                        ? 'text-blue-400 font-bold mt-4 border-l-2 border-blue-500'
-                                        : item.type === 'SCENE'
-                                            ? 'text-gray-300 text-sm pl-10 hover:text-white'
-                                            : 'text-gray-400 text-xs pl-14 hover:text-gray-200 indent-2'
+                                className={`w-full text-left px-6 py-2 hover:bg-gray-900 transition-colors ${item.derivedType === 'ACT'
+                                    ? 'text-blue-400 font-bold mt-4 border-l-2 border-blue-500'
+                                    : item.derivedType === 'SCENE'
+                                        ? 'text-gray-300 text-sm pl-10 hover:text-white'
+                                        : 'text-gray-400 text-xs pl-14 hover:text-gray-200 indent-2'
                                     }`}
                             >
                                 {item.text}

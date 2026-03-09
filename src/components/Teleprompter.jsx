@@ -42,7 +42,7 @@ const ScriptLine = ({ node, index, isActiveNode, settings, onJumpToLine }) => {
         nodeClasses += "text-gray-200 ";
     }
 
-    if (node.type === 'DIRECTION') {
+    if (node.type === 'DIRECTION' || node.character === 'STAGE DIRECTIONS' || node.character === 'INLINE STAGE DIRECTIONS') {
         nodeClasses += "text-gray-400 italic text-[0.95em] ";
     }
 
@@ -133,8 +133,13 @@ export default function Teleprompter({ scriptNodes, currentIndex, settings, onJu
                     if (allHidden) return null;
 
                     const firstNode = group[0].node;
-                    // Find the primary dialogue node to securely anchor the Character Name
-                    const dialogueItem = group.find(item => item.node.type === 'DIALOGUE');
+                    // Find the primary dialogue node to securely anchor the Character Name.
+                    // Live parsing uses type: 'DIALOGUE'. Studio parsing just omits the type but provides 'character'
+                    // Ensure the character is not a structural node (ACT, SCENE, etc.)
+                    const dialogueItem = group.find(item =>
+                        item.node.type === 'DIALOGUE' ||
+                        (!item.node.type && item.node.character !== 'ACT' && item.node.character !== 'SCENE' && item.node.character !== 'FRENCH_SCENE' && !item.node.character.includes('DIRECTION'))
+                    );
                     const speakerName = dialogueItem ? dialogueItem.node.character : null;
 
                     let lineClasses = "p-4 rounded-lg transition-all cursor-pointer border border-transparent ";
@@ -145,11 +150,13 @@ export default function Teleprompter({ scriptNodes, currentIndex, settings, onJu
                         lineClasses += "hover:bg-gray-800 ";
                     }
 
-                    if (firstNode.type === 'ACT') {
+                    const firstNodeTypeName = firstNode.type || firstNode.character;
+
+                    if (firstNodeTypeName === 'ACT') {
                         lineClasses += "text-3xl font-extrabold text-blue-400 mt-12 mb-6 border-b border-blue-900/50 ";
-                    } else if (firstNode.type === 'SCENE') {
+                    } else if (firstNodeTypeName === 'SCENE') {
                         lineClasses += "text-2xl font-bold text-blue-300 mt-8 mb-4 border-b border-gray-800 ";
-                    } else if (firstNode.type === 'FRENCH_SCENE') {
+                    } else if (firstNodeTypeName === 'FRENCH_SCENE') {
                         lineClasses += "text-xl font-semibold text-gray-300 mt-6 mb-3 ";
                     } else {
                         lineClasses += "text-lg "; // default dialogue/direction sizing

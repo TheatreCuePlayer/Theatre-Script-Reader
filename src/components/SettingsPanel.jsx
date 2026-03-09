@@ -89,21 +89,24 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, playba
                                     </div>
 
                                     <div className="flex-1 w-full xl:w-auto xl:min-w-48">
-                                        {playbackMode && playbackMode.startsWith('pre_rendered') && role !== 'ACT' && role !== 'SCENE' && role !== 'FRENCH_SCENE' ? (
-                                            <div className="w-full bg-gray-900 border border-gray-700 rounded-md p-2 text-sm text-emerald-400 font-mono text-center flex items-center justify-center gap-2">
-                                                <span>Studio Pre-Rendered Audio</span>
-                                            </div>
-                                        ) : role === 'ACT' || role === 'SCENE' || role === 'FRENCH_SCENE' ? (
+                                        {role === 'ACT' || role === 'SCENE' || role === 'FRENCH_SCENE' ? (
                                             <div className="w-full bg-gray-900 border border-gray-700 rounded-md p-2 text-sm text-gray-500 font-mono text-center flex items-center justify-center gap-2">
                                                 <span>Structural Element</span>
                                             </div>
                                         ) : (
                                             <select
-                                                className="w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
-                                                value={currentSetting.voiceURI || ''}
+                                                className={`w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none ${(playbackMode && playbackMode.startsWith('pre_rendered') && (!currentSetting.voiceURI || currentSetting.voiceURI === 'pre_rendered'))
+                                                        ? 'text-emerald-400 font-bold'
+                                                        : 'text-gray-200'
+                                                    }`}
+                                                value={currentSetting.voiceURI || (playbackMode && playbackMode.startsWith('pre_rendered') ? 'pre_rendered' : '')}
                                                 onChange={(e) => onSettingChange(role, { ...currentSetting, voiceURI: e.target.value })}
                                             >
-                                                <option value="">Default Voice</option>
+                                                {playbackMode && playbackMode.startsWith('pre_rendered') ? (
+                                                    <option value="pre_rendered">Studio Pre-Rendered Audio</option>
+                                                ) : (
+                                                    <option value="">Default Voice</option>
+                                                )}
                                                 {voices.map((voice, idx) => (
                                                     <option key={voice.id || idx} value={voice.id}>{voice.name} {voice.lang ? `(${voice.lang})` : ''}</option>
                                                 ))}
@@ -111,8 +114,8 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, playba
                                         )}
                                     </div>
 
-                                    {/* Sliders and Preview ONLY if it's Live Mode and not a structural element */}
-                                    {(!playbackMode || !playbackMode.startsWith('pre_rendered')) && role !== 'ACT' && role !== 'SCENE' && role !== 'FRENCH_SCENE' && (
+                                    {/* Sliders and Preview ONLY if it's Live Mode (or overridden live voice) and not a structural element */}
+                                    {(!(playbackMode && playbackMode.startsWith('pre_rendered') && (!currentSetting.voiceURI || currentSetting.voiceURI === 'pre_rendered'))) && role !== 'ACT' && role !== 'SCENE' && role !== 'FRENCH_SCENE' && (
                                         <>
                                             {/* Sliders Container */}
                                             <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
