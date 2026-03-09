@@ -120,8 +120,35 @@ function Studio() {
                     continue;
                 }
 
-                if (rawLine.startsWith('#')) {
-                    continue; // Skip headers for JSON
+                // Headers starting with ### = FRENCH_SCENE
+                if (rawLine.startsWith('###')) {
+                    parsedNodes.push({
+                        id: `line_${String(currentLineNumber++).padStart(4, '0')}`,
+                        character: "FRENCH_SCENE",
+                        originalText: rawLine.replace(/^###\s*/, ''),
+                        audioUrl: null
+                    });
+                    continue;
+                }
+                // Headers starting with ## = SCENE
+                else if (rawLine.startsWith('##')) {
+                    parsedNodes.push({
+                        id: `line_${String(currentLineNumber++).padStart(4, '0')}`,
+                        character: "SCENE",
+                        originalText: rawLine.replace(/^##\s*/, ''),
+                        audioUrl: null
+                    });
+                    continue;
+                }
+                // Headers starting with # = ACT
+                else if (rawLine.startsWith('#')) {
+                    parsedNodes.push({
+                        id: `line_${String(currentLineNumber++).padStart(4, '0')}`,
+                        character: "ACT",
+                        originalText: rawLine.replace(/^#\s*/, ''),
+                        audioUrl: null
+                    });
+                    continue;
                 }
 
                 // Node Creation Loop
@@ -174,6 +201,18 @@ function Studio() {
                 }
             }
 
+            // Intelligent Inheritance: If there's an existing masterScript loaded (e.g., from an old script.json),
+            // attempt to salvage audio URLs and character assignments by matching the raw original text.
+            // This prevents ID-shift breakage when structural nodes are added/removed.
+            if (masterScript.length > 0) {
+                parsedNodes.forEach(newNode => {
+                    const match = masterScript.find(oldNode => oldNode.originalText === newNode.originalText && oldNode.character === newNode.character && oldNode.audioUrl);
+                    if (match) {
+                        newNode.audioUrl = match.audioUrl;
+                    }
+                });
+            }
+
             setMasterScript(parsedNodes);
             setPronunciationDictionary(dict);
             setEndLine(parsedNodes.length);
@@ -184,11 +223,14 @@ function Studio() {
                 if (n.character) uniqueChars.add(n.character);
             });
 
-            const initialConfig = {};
+            // Preserve existing Voice Configurations
+            const updatedConfig = { ...voiceConfig };
             Array.from(uniqueChars).sort().forEach(char => {
-                initialConfig[char] = { voice: "Skip/Mute", speed: 1.0, pitch: 0.0 };
+                if (!updatedConfig[char]) {
+                    updatedConfig[char] = { voice: "Skip/Mute", speed: 1.0, pitch: 0.0 };
+                }
             });
-            setVoiceConfig(initialConfig);
+            setVoiceConfig(updatedConfig);
         };
 
         reader.readAsText(file);
@@ -381,43 +423,47 @@ function Studio() {
                             <div key={character} className="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3 space-y-3">
                                 <div className="flex items-center justify-between">
                                     <span className="font-bold text-sm text-gray-200">{character}</span>
-                                    <button
-                                        onClick={() => testVoice(character)}
-                                        disabled={config.voice === "Skip/Mute"}
-                                        className="p-1 px-2 text-xs bg-gray-700 hover:bg-emerald-600 disabled:opacity-30 disabled:hover:bg-gray-700 rounded transition-colors flex items-center gap-1"
-                                    >
-                                        <Play size={12} /> Test
-                                    </button>
+                                    {character !== 'ACT' && character !== 'SCENE' && character !== 'FRENCH_SCENE' && (
+                                        <button
+                                            onClick={() => testVoice(character)}
+                                            disabled={config.voice === "Skip/Mute"}
+                                            className="p-1 px-2 text-xs bg-gray-700 hover:bg-emerald-600 disabled:opacity-30 disabled:hover:bg-gray-700 rounded transition-colors flex items-center gap-1"
+                                        >
+                                            <Play size={12} /> Test
+                                        </button>
+                                    )}
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <select
-                                        className="flex-1 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
-                                        value={config.voice}
-                                        onChange={(e) => updateConfig(character, 'voice', e.target.value)}
-                                    >
-                                        {AVAILABLE_VOICES.map(v => <option key={v} value={v}>{v}</option>)}
-                                    </select>
-                                    <input
-                                        type="number"
-                                        step="0.1"
-                                        min="0.25"
-                                        max="4.0"
-                                        className="w-16 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
-                                        value={config.speed}
-                                        onChange={(e) => updateConfig(character, 'speed', parseFloat(e.target.value))}
-                                        title="Speed"
-                                    />
-                                    <input
-                                        type="number"
-                                        step="0.5"
-                                        min="-10.0"
-                                        max="10.0"
-                                        className="w-16 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
-                                        value={config.pitch !== undefined ? config.pitch : 0.0}
-                                        onChange={(e) => updateConfig(character, 'pitch', parseFloat(e.target.value) || 0.0)}
-                                        title="Pitch"
-                                    />
-                                </div>
+                                {character !== 'ACT' && character !== 'SCENE' && character !== 'FRENCH_SCENE' && (
+                                    <div className="flex items-center gap-2">
+                                        <select
+                                            className="flex-1 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
+                                            value={config.voice}
+                                            onChange={(e) => updateConfig(character, 'voice', e.target.value)}
+                                        >
+                                            {AVAILABLE_VOICES.map(v => <option key={v} value={v}>{v}</option>)}
+                                        </select>
+                                        <input
+                                            type="number"
+                                            step="0.1"
+                                            min="0.25"
+                                            max="4.0"
+                                            className="w-16 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
+                                            value={config.speed}
+                                            onChange={(e) => updateConfig(character, 'speed', parseFloat(e.target.value))}
+                                            title="Speed"
+                                        />
+                                        <input
+                                            type="number"
+                                            step="0.5"
+                                            min="-10.0"
+                                            max="10.0"
+                                            className="w-16 bg-gray-900 border border-gray-700 text-gray-300 text-xs rounded p-1.5 focus:border-blue-500 outline-none"
+                                            value={config.pitch !== undefined ? config.pitch : 0.0}
+                                            onChange={(e) => updateConfig(character, 'pitch', parseFloat(e.target.value) || 0.0)}
+                                            title="Pitch"
+                                        />
+                                    </div>
+                                )}
                             </div>
                         ))
                     )}
@@ -515,13 +561,13 @@ function Studio() {
                                     <div className="flex-1">
                                         <div className={`font-bold text-xs uppercase tracking-wider mb-1 ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
                                             ? 'text-gray-500'
-                                            : 'text-blue-400'
+                                            : (node.character === "ACT" || node.character === "SCENE" || node.character === "FRENCH_SCENE") ? 'text-emerald-400' : 'text-blue-400'
                                             }`}>
                                             {node.character}
                                         </div>
                                         <div className={`text-base leading-relaxed ${(node.character === "STAGE DIRECTIONS" || node.character === "INLINE STAGE DIRECTIONS")
                                             ? 'text-gray-400 italic'
-                                            : 'text-gray-200'
+                                            : (node.character === "ACT" || node.character === "SCENE" || node.character === "FRENCH_SCENE") ? 'text-emerald-300 font-bold uppercase' : 'text-gray-200'
                                             }`}>
                                             {node.originalText}
                                         </div>

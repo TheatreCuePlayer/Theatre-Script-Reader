@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play } from 'lucide-react';
 
-export default function SettingsPanel({ roles, settings, apiKeys, voices, cloudScriptUrl, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
+export default function SettingsPanel({ roles, settings, apiKeys, voices, playbackMode, cloudScriptUrl, onSettingChange, onApiKeyChange, onCloudScriptUrlChange, onSyncScript, onPreview, onClose }) {
 
     const modes = ['Active', 'Muted (Timer)', 'Muted (Manual)', 'Transparent (Timed)', 'Transparent (Manual)', 'Hidden'];
 
@@ -89,84 +89,96 @@ export default function SettingsPanel({ roles, settings, apiKeys, voices, cloudS
                                     </div>
 
                                     <div className="flex-1 w-full xl:w-auto xl:min-w-48">
+                                        {playbackMode && playbackMode.startsWith('pre_rendered') && role !== 'ACT' && role !== 'SCENE' && role !== 'FRENCH_SCENE' ? (
+                                            <div className="w-full bg-gray-900 border border-gray-700 rounded-md p-2 text-sm text-emerald-400 font-mono text-center flex items-center justify-center gap-2">
+                                                <span>Studio Pre-Rendered Audio</span>
+                                            </div>
+                                        ) : role === 'ACT' || role === 'SCENE' || role === 'FRENCH_SCENE' ? (
+                                            <div className="w-full bg-gray-900 border border-gray-700 rounded-md p-2 text-sm text-gray-500 font-mono text-center flex items-center justify-center gap-2">
+                                                <span>Structural Element</span>
+                                            </div>
+                                        ) : (
+                                            <select
+                                                className="w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                value={currentSetting.voiceURI || ''}
+                                                onChange={(e) => onSettingChange(role, { ...currentSetting, voiceURI: e.target.value })}
+                                            >
+                                                <option value="">Default Voice</option>
+                                                {voices.map((voice, idx) => (
+                                                    <option key={voice.id || idx} value={voice.id}>{voice.name} {voice.lang ? `(${voice.lang})` : ''}</option>
+                                                ))}
+                                            </select>
+                                        )}
+                                    </div>
+
+                                    {/* Sliders and Preview ONLY if it's Live Mode and not a structural element */}
+                                    {(!playbackMode || !playbackMode.startsWith('pre_rendered')) && role !== 'ACT' && role !== 'SCENE' && role !== 'FRENCH_SCENE' && (
+                                        <>
+                                            {/* Sliders Container */}
+                                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
+                                                {/* Speed Slider */}
+                                                <div className="flex-1 sm:w-32 flex flex-col justify-center bg-gray-950 p-2 rounded-md border border-gray-700 w-full">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-[10px] uppercase text-gray-500 font-bold tracking-wider">Speed</span>
+                                                        <span className="text-xs text-blue-400 font-mono">{Number(speedVal).toFixed(1)}x</span>
+                                                    </div>
+                                                    <input
+                                                        title="Per-Character Speed (1.0 = Use Global)"
+                                                        type="range"
+                                                        min="0.5"
+                                                        max="2.0"
+                                                        step="0.1"
+                                                        value={speedVal}
+                                                        onChange={(e) => onSettingChange(role, { ...currentSetting, speed: parseFloat(e.target.value) })}
+                                                        className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                                                    />
+                                                </div>
+
+                                                {/* Pitch Slider */}
+                                                <div className="flex-1 sm:w-32 flex flex-col justify-center bg-gray-950 p-2 rounded-md border border-gray-700 w-full">
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="text-[10px] uppercase text-gray-500 font-bold tracking-wider">Pitch</span>
+                                                        <span className="text-xs text-emerald-400 font-mono">{Number(pitchVal).toFixed(1)}</span>
+                                                    </div>
+                                                    <input
+                                                        title="Pitch Adjustment"
+                                                        type="range"
+                                                        min="0.0"
+                                                        max="2.0"
+                                                        step="0.1"
+                                                        value={pitchVal}
+                                                        onChange={(e) => onSettingChange(role, { ...currentSetting, pitch: parseFloat(e.target.value) })}
+                                                        className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <button
+                                                onClick={() => onPreview(currentSetting.voiceURI, speedVal, pitchVal)}
+                                                className="flex-1 xl:flex-none justify-center flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 rounded-md text-sm transition-colors border border-blue-600/50 min-w-max"
+                                            >
+                                                <Play size={16} fill="currentColor" /> Preview
+                                            </button>
+                                        </>
+                                    )}
+
+                                    <div className="flex-1 xl:flex-none xl:w-40 min-w-max">
                                         <select
                                             className="w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
-                                            value={currentSetting.voiceURI || ''}
-                                            onChange={(e) => onSettingChange(role, { ...currentSetting, voiceURI: e.target.value })}
+                                            value={currentSetting.mode}
+                                            onChange={(e) => onSettingChange(role, { ...currentSetting, mode: e.target.value })}
                                         >
-                                            <option value="">Default Voice</option>
-                                            {voices.map((voice, idx) => (
-                                                <option key={voice.id || idx} value={voice.id}>{voice.name} {voice.lang ? `(${voice.lang})` : ''}</option>
+                                            {modes.map(m => (
+                                                <option key={m} value={m}>{m}</option>
                                             ))}
                                         </select>
                                     </div>
-
-                                    {/* Sliders Container */}
-                                    <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
-                                        {/* Speed Slider */}
-                                        <div className="flex-1 sm:w-32 flex flex-col justify-center bg-gray-950 p-2 rounded-md border border-gray-700 w-full">
-                                            <div className="flex justify-between items-center mb-1">
-                                                <span className="text-[10px] uppercase text-gray-500 font-bold tracking-wider">Speed</span>
-                                                <span className="text-xs text-blue-400 font-mono">{Number(speedVal).toFixed(1)}x</span>
-                                            </div>
-                                            <input
-                                                title="Per-Character Speed (1.0 = Use Global)"
-                                                type="range"
-                                                min="0.5"
-                                                max="2.0"
-                                                step="0.1"
-                                                value={speedVal}
-                                                onChange={(e) => onSettingChange(role, { ...currentSetting, speed: parseFloat(e.target.value) })}
-                                                className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
-                                            />
-                                        </div>
-
-                                        {/* Pitch Slider */}
-                                        <div className="flex-1 sm:w-32 flex flex-col justify-center bg-gray-950 p-2 rounded-md border border-gray-700 w-full">
-                                            <div className="flex justify-between items-center mb-1">
-                                                <span className="text-[10px] uppercase text-gray-500 font-bold tracking-wider">Pitch</span>
-                                                <span className="text-xs text-emerald-400 font-mono">{Number(pitchVal).toFixed(1)}</span>
-                                            </div>
-                                            <input
-                                                title="Pitch Adjustment"
-                                                type="range"
-                                                min="0.0"
-                                                max="2.0"
-                                                step="0.1"
-                                                value={pitchVal}
-                                                onChange={(e) => onSettingChange(role, { ...currentSetting, pitch: parseFloat(e.target.value) })}
-                                                className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-row justify-between xl:justify-end items-center gap-3 w-full xl:w-auto mt-2 xl:mt-0">
-                                        <button
-                                            onClick={() => onPreview(currentSetting.voiceURI, speedVal, pitchVal)}
-                                            className="flex-1 xl:flex-none justify-center flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 rounded-md text-sm transition-colors border border-blue-600/50 min-w-max"
-                                        >
-                                            <Play size={16} fill="currentColor" /> Preview
-                                        </button>
-
-                                        <div className="flex-1 xl:flex-none xl:w-40 min-w-max">
-                                            <select
-                                                className="w-full bg-gray-950 border border-gray-700 rounded-md p-2 text-sm text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
-                                                value={currentSetting.mode}
-                                                onChange={(e) => onSettingChange(role, { ...currentSetting, mode: e.target.value })}
-                                            >
-                                                {modes.map(m => (
-                                                    <option key={m} value={m}>{m}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    </div>
-
                                 </div>
                             );
                         })}
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

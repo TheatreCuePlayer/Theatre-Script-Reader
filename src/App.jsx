@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Upload, Settings as SettingsIcon, Menu, RefreshCw } from 'lucide-react';
+import { Upload, Settings as SettingsIcon, Menu, RefreshCw, HelpCircle } from 'lucide-react';
 import { parseScript } from './utils/parser';
 import { useSpeechEngine } from './hooks/useSpeechEngine';
 
@@ -8,6 +8,7 @@ import Teleprompter from './components/Teleprompter';
 import BottomBar from './components/BottomBar';
 import SettingsPanel from './components/SettingsPanel';
 import Studio from './components/Studio';
+import HelpModal from './components/HelpModal';
 
 function App() {
     const [scriptNodes, setScriptNodes] = useState([]);
@@ -28,6 +29,7 @@ function App() {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [isHelpOpen, setIsHelpOpen] = useState(false);
 
     // Simple routing state
     const [currentView, setCurrentView] = useState('player'); // 'player' or 'studio'
@@ -352,6 +354,15 @@ function App() {
                         )}
 
                         <button
+                            onClick={() => setIsHelpOpen(true)}
+                            className="flex justify-center items-center gap-2 px-3 py-2 bg-blue-900 border border-blue-700 hover:bg-blue-800 text-blue-100 rounded-lg transition-colors shadow-lg text-sm font-semibold"
+                            title="Quick Start Guide"
+                        >
+                            <HelpCircle size={18} />
+                            <span className="hidden sm:inline">Help</span>
+                        </button>
+
+                        <button
                             onClick={() => setIsSettingsOpen(true)}
                             className="flex items-center gap-2 px-3 py-2 bg-gray-800 border border-gray-700 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors shadow-lg text-sm"
                         >
@@ -400,6 +411,7 @@ function App() {
                     settings={settings}
                     apiKeys={apiKeys}
                     voices={voices}
+                    playbackMode={playbackMode}
                     cloudScriptUrl={cloudScriptUrl}
                     onSettingChange={handleSettingChange}
                     onApiKeyChange={handleApiKeyChange}
@@ -409,6 +421,12 @@ function App() {
                     onClose={() => setIsSettingsOpen(false)}
                 />
             )}
+
+            {/* Help Modal */}
+            <HelpModal
+                isOpen={isHelpOpen}
+                onClose={() => setIsHelpOpen(false)}
+            />
 
         </div>
     );
